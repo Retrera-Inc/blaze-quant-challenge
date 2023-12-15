@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from PIL import Image 
 
 
-image_path = "Assets\onc.png"
+image_path = "Assets/onc.png"
 image = Image.open(image_path)
 # Set title and subheader
 

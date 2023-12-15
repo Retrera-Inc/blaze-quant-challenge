@@ -15,7 +15,7 @@ with tab1:
   st.markdown(f"<h2 style='color: yellow;'>Injective (INJ) Price Analysis</h2>", unsafe_allow_html=True)
   df = utils.fetch_ethereum_data()
   df.index = pd.to_datetime(df.index, unit='ms')
-  st.markdown(f"<p style='text-align: center;'>Price: {str(round(stats[0],2))}</p>", unsafe_allow_html=True)
+  st.markdown(f"<p style='text-align: center;'>Price: {str(round(stats[0],2))} $</p>", unsafe_allow_html=True)
   if stats[6] >= 0.0:
     st.markdown(f"<p style='text-align: center;'> <span style='color: green;'>↑ </span> <span style='color: green;'>{str(round(stats[6],2))}(1D)%</span> </p>", unsafe_allow_html=True)
   else:

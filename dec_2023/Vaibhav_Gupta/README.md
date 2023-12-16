@@ -22,7 +22,12 @@ This project aims to provide in-depth insights into the GNO token, covering aspe
 To run the Streamlit app locally, follow these steps:
 
 1. Clone the repository :  git clone the project
-
+   ```
+   https://github.com/ePSA-eJya/blaze-quant-challenge.git
+   ```
+   ```
+   cd dec_2023/Vaibhav_Gupta
+   ```
 2. Install dependencies:
 
    ```bash

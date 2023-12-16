@@ -2,15 +2,10 @@
 
 
 ### Sample Analysis:
-![](sample-of-analysis/NVT-ratio.png)
 
-![](sample-of-analysis/moving average.png)
+![](Sanjai_/sample-of-analysis/NVT-ratio.png)
 
-![](sample-of-analysis/average-t.png)
 
-![](sample-of-analysis/metric.png)
-
-![](sample-of-analysis/sentiment.png)
 
 
 ### We Have Analysed All the Factors:

@@ -1,0 +1,32 @@
+[data-testid="stAppViewContainer"] > .main {
+    background-color: #FFECD6;
+}
+
+/* Change secondary background color */
+[data-testid="stSidebar"] > div:first-child {
+    background-color: #193269;
+}
+
+/* styles.css */
+
+[data-testid="stAppHeader"] h1 {
+    color: #0F2167 !important;
+}
+
+[data-testid="app"] .stMenuItem {
+    color: #FFECD6 !important;
+}
+
+.streamlit-header {
+    color: #193269;
+}
+
+.streamlit-write {
+    color: #193269;
+}
+
+
+body {
+    background-color: #FFECD6;
+    font-family: 'Your Chosen Font', sans-serif; /* Replace 'Your Chosen Font' with your preferred font */
+}

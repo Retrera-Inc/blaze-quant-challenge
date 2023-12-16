@@ -58,4 +58,4 @@ api_key = "da649765151f98b2bde0e0818556fed1c590feed5c4c1013d3fee4ce034cb831"
 # Display UNI historical price line chart
 display_historical_price_line_chart(api_key)
 
-st.write("Note: The displayed historical price data is for demonstration purposes. Adjustments may be needed based on the specific future aspects you are interested in.")
+st.write("Note: The data contains the aspects of the UNI token.")

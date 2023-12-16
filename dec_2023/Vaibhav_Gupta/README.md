@@ -7,26 +7,21 @@ This project aims to provide in-depth insights into the GNO token, covering aspe
 
 ## Sections
 
-- Token Model
-- Token Analysis
-- Token Blueprint
-- Position and Functionality
-- Key Metrics
-- Tokenomics
-- On Chain Data Insights
-- Revenue Model
-- Milestones
-- Risks
-- Future Prospects
-- White Paper
+- Key Metrics and Market Comparisions
+ - Tokenomics
+ - On-chain Data Insights
+ - Governance Mechanisms and Business Model
+ - Significance Project Milestones
+ - Social Activity
+ - Why build on GNOSIS CHAIN ?
+ - Evaluation of Potential Risks and Future Prospects
+ - GNO Whitepaper
 
 ## Getting Started
 
 To run the Streamlit app locally, follow these steps:
 
-1. Clone the repository:
-
-  git clone the project
+1. Clone the repository :  git clone the project
 
 2. Install dependencies:
 

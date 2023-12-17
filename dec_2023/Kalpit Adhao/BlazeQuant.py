@@ -280,7 +280,7 @@ def sent():
             return self.text
 
         def component(self):
-            return components.html(self.text, height=600)
+            return components.html(self.text, height=900)
     tab1, tab2, tab3, tab4 = st.tabs(["Tweet 1", "Tweet 2", "Tweet 3","Tweet 4"])
     with tab1:
             t = Tweet(link[0]).component()

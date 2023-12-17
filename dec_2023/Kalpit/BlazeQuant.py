@@ -326,11 +326,11 @@ def sent():
     st.table(df.corr())
     st.write("")
     st.write("Below we see fundrate has been increasing for INJ")
-    st.image("fundrate.png", width=700)
+    st.image("dec_2023/Kalpit/fundrate.png", width=700)
     st.write("Another thing to notice below is the increased volume of derivatives market which was accompanied by the recent price surge indicating a good correlation")
-    st.image("derivatives.png", width=700)
+    st.image("dec_2023/Kalpit/derivatives.png", width=700)
     st.write("Overall Sentiment using technicals")
-    st.image("senti.png", width=700)
+    st.image("dec_2023/Kalpit/senti.png", width=700)
 
 
 # In[ ]:

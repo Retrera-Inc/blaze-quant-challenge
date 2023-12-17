@@ -28,6 +28,7 @@ def set_background(png_file):
 
 def download_nltk_resources():
     nltk.download("punkt")
+    nltk.download('stopwords')
 
 def remove_emojis(text):
     emoji_pattern = re.compile("["
@@ -64,27 +65,27 @@ def filter_words(text):
     filtered_words = [word for word in text.split() if 'illuv' not in word and 'ilv' not in word]
     return " ".join(filtered_words)
 
-def extract(token) :
+# def extract(token) :
 
-    data = requests.get(f'https://api.coingecko.com/api/v3/coins/{token}/market_chart?vs_currency=USD&days=max').json()
-    open_close = requests.get(f'https://api.coingecko.com/api/v3/coins/{token}/ohlc?vs_currency=usd&days=max').json()
+#     data = requests.get(f'https://api.coingecko.com/api/v3/coins/{token}/market_chart?vs_currency=USD&days=max').json()
+#     open_close = requests.get(f'https://api.coingecko.com/api/v3/coins/{token}/ohlc?vs_currency=usd&days=max').json()
 
-    if 'error' in data.keys() : warnings.warn('Token Not available')
-    else :
+#     if 'error' in data.keys() : warnings.warn('Token Not available')
+#     else :
 
-        prices = pd.DataFrame(data['prices'] , columns = ['Time' , 'prices'])
-        mcap = pd.DataFrame(data['market_caps'] , columns = ['Time' , 'MCap'])
-        volume = pd.DataFrame(data['total_volumes'] , columns = ['Time' , 'Volume'])
+#         prices = pd.DataFrame(data['prices'] , columns = ['Time' , 'prices'])
+#         mcap = pd.DataFrame(data['market_caps'] , columns = ['Time' , 'MCap'])
+#         volume = pd.DataFrame(data['total_volumes'] , columns = ['Time' , 'Volume'])
 
-        open_close = pd.DataFrame(open_close , columns = ['Time' , 'Open' , 'High' , 'Low' , 'Close'])
+#         open_close = pd.DataFrame(open_close , columns = ['Time' , 'Open' , 'High' , 'Low' , 'Close'])
 
-        prices = prices.merge(mcap)
-        prices = prices.merge(volume)
-        prices = prices.merge(open_close , how = 'outer')
+#         prices = prices.merge(mcap)
+#         prices = prices.merge(volume)
+#         prices = prices.merge(open_close , how = 'outer')
 
-        return prices
+#         return prices
 
-    return None 
+#     return None 
 
 pd.options.mode.chained_assignment = None
 

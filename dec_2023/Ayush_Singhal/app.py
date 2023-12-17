@@ -1,3 +1,4 @@
+
 import pandas as pd
 from datetime import datetime, timedelta
 import seaborn as sns
@@ -8,6 +9,11 @@ from wordcloud import WordCloud
 from helper import remove_emojis, remove_stopwords, stem_text, filter_words, help
 from textblob import TextBlob
 import plotly.express as px
+import plotly.graph_objs as go
+from plotly.subplots import make_subplots
+
+
+# st.set_page_config(layout="wide")
 
 def generate_wordcloud(text):
     wordcloud = WordCloud(width=800, height=600, background_color="black").generate(text)
@@ -41,67 +47,15 @@ def process_date(df):
 def extract(token, df):
     cols = [val for val in df.columns if token in val or 'Date' in val]
     return df[cols]
-# def plot_price_and_tweet_histogram(price_data, counts_data):
-#     # Plot 'Price' data
-#     plt.figure(figsize=(10, 6))
-#     plt.plot(price_data.index, price_data['Price'], label='Illuvium Price', color='blue')
-#     plt.xlabel('Date')
-#     plt.ylabel('Price (USD)')
-#     plt.title('Illuvium Price Over Time')
-#     plt.legend()
-#     st.pyplot()
-
-#     # Plot histogram of tweet counts
-#     plt.figure(figsize=(10, 6))
-#     plt.bar(price_data.index, counts_data['Total Tweets'], color='green', alpha=0.7)
-#     plt.xlabel('Date')
-#     plt.ylabel('Tweet Count')
-#     plt.title('Tweet Count Histogram Over Time')
-#     st.pyplot()
-
-
-# import plotly.express as px
-
-# def extract(token) :
-
-#     data = requests.get(f'https://api.coingecko.com/api/v3/coins/{token}/market_chart?vs_currency=USD&days=max').json()
-#     open_close = requests.get(f'https://api.coingecko.com/api/v3/coins/{token}/ohlc?vs_currency=usd&days=max').json()
-
-#     if 'error' in data.keys() : warnings.warn('Token Not available')
-#     else :
-
-#         prices = pd.DataFrame(data['prices'] , columns = ['Time' , 'Price'])
-#         mcap = pd.DataFrame(data['market_caps'] , columns = ['Time' , 'MCap'])
-#         volume = pd.DataFrame(data['total_volumes'] , columns = ['Time' , 'Volume'])
-
-#         open_close = pd.DataFrame(open_close , columns = ['Time' , 'Open' , 'High' , 'Low' , 'Close'])
-
-#         prices = prices.merge(mcap)
-#         prices = prices.merge(volume)
-#         prices = prices.merge(open_close , how = 'outer')
-
-#         return prices
-
-#     return None
-
-# Function to fetch Illuvium price data
-# def fetch_illuvium_data():
-#     end_date = datetime.now()
-#     start_date = end_date - timedelta(days=730)  # Last two years
-#     url = f'https://api.coingecko.com/api/v3/coins/illuvium/market_chart?vs_currency=USD&days=max'
-#     response = requests.get(url)
-#     data = response.json()
-#     prices = data["prices"]
-#     return pd.DataFrame(prices, columns=["Date", "Price"]).set_index("Date")
-
+    
 about_1 = f'''
-`Illuvium` is among the `Largest CryptocCurrencies`, valued at over {str('$')}{float(96.37)}$. What sets it apart is its `consistent price` of around {str('$')}{float(263.2)}$, unlike competitors struggling to reach $1$. 
+`Illuvium` is among the `Largest CryptocCurrencies`, valued at over $ USD$ $96.37$. What sets it apart is it's `consistent price` of around $USD$ $263.2$, unlike competitors struggling to reach even $USD$ $1$. 
 
 `But does Illuvium live up to the hype...?`
 
 #### About Illuvium
 
-`Illuvium`, a `Decentralized Gaming Ecosystem` on the `Ethereum Blockchain`, offers an `Open-World Fantasy` battle experience. Driven by `NFTs`, players `collect and trade unique creatures` (Illuvials) for battles, exploration, and potential rewards. The game `integrates DeFi elements`, combining a `Collectible NFT RPG` and `Auto-Battler` on the `Immutable X L2 Network`.
+`Illuvium`, a `Decentralized Gaming Ecosystem` on the `Ethereum Blockchain`, offers an `Open-World Fantasy` battle experience. Driven by `NFTs`, players `collect and trade unique creatures` `(Illuvials)` for battles, exploration, and potential rewards. The game `integrates DeFi elements`, combining a `Collectible NFT RPG` and `Auto-Battler` on the `Immutable X L2 Network`.
 
 #### Roots and Building the Ecosystem
 
@@ -111,25 +65,121 @@ Founded by the `Warwick Brothers` in `September 2020`, Illuvium attracted a `tea
 
 Illuvials, `Deadly Beasts` in the `Alien World`, possess `Hybrid Synergies` and `Unique Abilities`. These `4-dimensional-shading holographic NFTs` can be captured to `gain power` or `sold on exchanges` for crypto income.
 
-#### World/Modes
+#### Game Modes
+'''
+auto_battler = '''
+#### Auto Battler
 
-`Illuvium` features three interactive `AAA Games`: 
+`Auto Battler` is a `multiplayer strategy game` where players `battle each other` using `automated units`. Illuvium's `Auto Battler` mode `differs from traditional Auto Battlers` by `replacing multiplayer with computer-controlled enemies`. This `unique approach` may `limit player engagement` and `reduce the game's appeal`.
+'''
+open_world = '''
+#### Overworld
 
-* Auto Battler - Illuvium's `departure` from the `multiplayer setup` in `AutoBattler`, opting for `computer-controlled enemies`, may lead to `player boredom`. Competing games like `League of Legends` offer more dynamic experiences.
-* Overworld (monster world) - The `open-world` concept in Illuvium `may struggle` due to `perceived emptiness`, offering `limited engagement` beyond resource collection and crafting, reflecting a diminishing interest in such gameplay dynamics.
-* Arena (arena) - This mode `replicates AutoBattler` with a `multiplayer` component but lacks the innovation needed to stand out.
+The `Overworld` is an `open-world environment` where players `explore the Illuvium world` and `collect resources`. The `Overworld` is `similar to other open-world games` and may `not offer a unique experience` to players.
+'''
+arena = '''
+#### Arena
 
+The `Arena` is a `multiplayer mode` where players `battle each other` using `Illuvials`. The `Arena` is `similar to other Auto Battlers` and may `not offer a unique experience` to players.
+'''
+
+investors = '''
+#### Investors
+
+|||
+|---|---|
+|**Lead Investors**|
+|Framework Ventures|This `Venture Capital Firm` `specializing` in `blockchain` and `crypto` has been a `strong supporter` of Illuvium since its early days. They led two funding rounds, injecting $USD$ $5$ $Million$ in `March 2021` and another $USD$ $10$ $Million$ in `May 2023`. Their continued faith `highlights` `Illuvium's long-term potential`.
+|**Other Notable Investors**||
+|Polemos|This `Crypto-Focused VC Firm` invested $USD$ $2$ $Million$ in `February 2022`, demonstrating `confidence` in `Illuvium's ability to disrupt the gaming industry`.
+|11 Other Institutional Investors|While `details remain undisclosed`, `Illuvium's total investor count` stands at $12$, indicating `broad institutional backing` for the project.
+|**Types of Investors**|
+|Venture Capital Firms|The `majority` of Illuvium's investors are prominent VCs operating in the blockchain and gaming space. This suggests their `belief in the project's ability to generate significant returns`.
+|Individual Investors|While `details are scarce`, the project likely attracted `individual investors` through `token sales and community engagement`.
+'''
+
+revenue = '''
 #### Revenue Generation
 
 Illuvium `generates revenue` from 
 * In-game fees `(Exchange Fees and Wagering Fees)`
 * Illuvials `purchases` on the `IlluviDEX exchange`
 * `DeFi staking mechanisms` that convert `in-game profits from ETH` to `synthetic Illuvium` (sILV), distributed fairly to staked ILV token holders.
+'''
+price_dist = '''
+* **Lowest Price Range** : A `significant frequency bar` just above $USD$ $500$ at the beginning of the histogram suggests a `high occurrence of Illuvium prices` in the `lowest range (0-250 USD)`.
+* **Diminishing Frequencies** : As `prices increase`, `frequency bars decrease rapidly`, notably in the `USD 250-500` range. This pattern continues, with progressively smaller bars for higher price ranges.
+* **Sparse Occurrences Beyond 500 USD** : Beyond the $USD$ $500$ mark, `most bars display` very few occurrences, indicating a `scarcity of data points in higher price ranges`.
+'''
+moving_avg_30 = '''
+The `price line exhibits significant volatility`, with a `sharp peak in the center of the graph` where the price spikes dramatically before falling. 
+The `rolling average line is smoother`, representing the `average price over a 30-day period` and `reducing the impact of short-term fluctuations`.
+'''
+scatter = '''
+#### Correlation Plot: Normalized Prices and Market Cap
 
+The plot illustrates a positive correlation between two variables, with the `x-axis` denoted as "*Normalized Prices*" and the `y-axis` labeled as "*Normalized Market Cap*." The plotted points on the graph indicate a discernible upward trend, depicting a direct and proportional relationship between the normalized market capitalization and the normalized prices.
+
+Furthermore, the scatter plot includes an inset legend that references "*Volume_normalized*" alongside a color gradient scale.
+'''
+ilv_price_mcap = '''
+|||
+|---|---|
+|**Observations**|
+|Price (Blue Line)| The `price fluctuates over time`, with `significant volatility observed`, particularly in two time periods where price peaks notably.
+|Market Cap (Orange Dots)| The market capitalization follows a `trend similar` to the price, with significant fluctuations.
+|Volume (Green Dots)| Volume shows `less variation` compared to the price and market cap, with `occasional spikes` aligning with price peaks.
+|**Analysis**|
+|Price and Market Cap|The highest peak for both price and market cap occurs shortly after the start of 2022, followed by a sharp decline and a period of lower values and reduced volatility.
+||Toward the end of the observed period, both price and market cap exhibit an increasing trend with moderate volatility.
+|Volume|Volume does not show extreme peaks but has spikes that sometimes correspond to changes in price and market cap, indicating reactive trading behavior.
+'''
+
+dily_active_address = '''
+**Correlation between Price and User Activity:**
+  - A spike in New and Active Addresses aligns with a Price peak around January 2022, suggesting a correlation between price movements and user engagement.
+
+**Decline in New and Active Addresses:**
+  - Despite Price fluctuations, there's a gradual decline in both New and Active Addresses over time. Zero Balance Addresses remain stable, indicating potential user inactivity or account abandonment.
+
+**Intermittent Spikes in Activity:**
+  - Even with a lower Price, intermittent spikes in user activity occur, possibly tied to specific events or external factors rather than consistent Price changes.
+
+
+**Rise in Zero Balance Addresses:**
+  - Towards the later timeline, there's an increase in Zero Balance Addresses, suggesting the creation of addresses not actively funded or utilized. This may reflect a shift in user behavior or market dynamics.
+'''
+
+trans = '''
+- **Data Representation:**
+  - The y-axis on the left depicts Volume in USD, reaching up to 600M (millions), while the right y-axis represents another scale, potentially price or another metric, with a maximum value of 1500.
+
+- **Timeframe Representation:**
+  - The x-axis spans from July 2021 to a date beyond July 2023, with data points approximately at monthly intervals.
+
+- **Key Observations:**
+  - A significant peak in both price and volume (USD and otherwise) is evident around the end of 2021 or the beginning of 2022.
+  - Spikes in volume (USD) correspond with notable changes in price, suggesting a correlation between these two metrics.
+  - The red line, likely indicating the count of transactions ('Transc'), remains relatively flat and close to the bottom of the graph. However, it also has a peak around the same time as the volume and price peaks.
+'''
+
+etherum_ = '''
+- **Price Fluctuations:**
+  - Both Ethereum and Illuvium exhibit significant volatility, characterized by multiple peaks and troughs.
+
+- **Ethereum's Price Trends:**
+  - Ethereum's price shows sharp increases and subsequent declines, with a notable peak near 2021, followed by a decline and subsequent rise.
+
+- **Illuvium's Price Dynamics:**
+  - Illuvium's price data, starting from around 2021, displays a dramatic spike at one point followed by a sharp decline.
+'''
+
+voli = '''
+  - The blue line represents "Volatility," plotted on the left vertical axis. Significant spikes in January 2022 indicate a period of very high volatility, followed by a decrease and stabilization at a lower level.
+  - The black line represents "Price," plotted against the right vertical axis. Notable fluctuations, including a peak around January 2022, seem to correlate with the volatility spike. Subsequently, the price declines significantly before gradually increasing, possibly indicating a recovery or stabilization phase post-July 2023.
 '''
 
 price_corr_tweet = '''
-
 * Tweet Count : The tweet count exhibits a `discernible upward trend` starting from mid-2023. 
 `Significant spikes` are observed, indicating `heightened social media activity` and `increased interest` in Illuvium during this period.
 
@@ -138,56 +188,12 @@ price_corr_tweet = '''
 * Price & Social Media Correlation : While a `straightforward correlation` is not `evident`, `noteworthy peaks` in `tweet volume occasionally align` with `increased frequency` in Illuvium price data points, particularly towards the year's end.
 '''
 
-moving_avg_30 = '''
-The `price line exhibits significant volatility`, with a `sharp peak in the center of the graph` where the price spikes dramatically before falling. 
-The `rolling average line is smoother`, representing the `average price over a 30-day period` and `reducing the impact of short-term fluctuations`.
-'''
-
 sentiment_corr = '''
-
 * Overall Sentiment : The `majority of sentiment scores cluster around 0.25`, indicating a `generally slight positive sentiment` across the tweets.
 
 * Strong Sentiment Peaks : `Fewer tweets show strong positive or negative sentiment` (scores near 1 or -1). Notably, there is a `distinct peak around the -0.75 area`, suggesting a `concentration of tweets with strongly negative sentiments`.
 
 * Skewed Distribution: The `sentiment distribution is asymmetrical`, favoring the `positive side`. This indicates a `higher prevalence of tweets with positive sentiment` compared to negative sentiment.
-'''
-
-price_dist = '''
-
-* Lowest Price Range : A `significant frequency ba`r just above `500` at the beginning of the histogram suggests a `high occurrence of Illuvium prices` in the `lowest range (0-250 USD)`.
-* Diminishing Frequencies : As `prices increase`, `frequency bars decrease rapidly`, notably in the 250-500 USD range. This pattern continues, with progressively smaller bars for higher price ranges.
-* Sparse Occurrences Beyond 500 USD : Beyond the 500 USD mark, `most bars display` very few occurrences, indicating a scarcity of data points in higher price ranges.
-'''
-
-future = '''
-## Iluvium: Navigating Opportunities and Challenges in Blockchain-Based Gaming
-
-#### Market Landscape
-One key factor contributing to `Iluvium's` potential success is the burgeoning popularity of `blockchain-based gaming`. With the global gaming industry projected to reach `$200 billion by 2023`, the incorporation of blockchain technology is anticipated to propel substantial growth. `Iluvium's` distinctive approach positions it strategically to emerge as a leader in this evolving market.
-
-#### Team Dynamics
-The expertise of `Iluvium's` team, comprised of seasoned `blockchain developers`, `game designers`, and `marketing professionals`, adds a layer of assurance to the platform's success. This diverse skill set positions the team well for navigating the complexities of the `blockchain gaming landscape`.
-
-#### Community Traction
-`Iluvium` has already gained considerable traction in both the `blockchain` and `gaming communities`. The platform's `initial coin offering (ICO)` sold out in a mere `30 minutes`, underscoring strong investor interest. Support from prominent `blockchain investors` and `influencers` further validates `Iluvium's` potential impact in the space.
-
-#### Potential Challenges
-Despite promising prospects, `Iluvium` faces potential challenges on its journey. `Regulatory uncertainties` surrounding `blockchain-based gaming` pose a significant hurdle. Governments globally are grappling with the regulatory framework for cryptocurrency and blockchain technology, which could impact `Iluvium's` growth trajectory.
-
-`Competition` from other `blockchain-based gaming platforms` is another challenge. While `Iluvium's` innovative approach to `DeFi` and `NFTs` distinguishes it, the competitive landscape remains robust, with numerous projects vying for user and investor attention.
-
-#### Conclusion
-`Iluvium's` future appears promising, contingent upon its ability to navigate challenges and capitalize on opportunities. Continued innovation, community building, and adept management of regulatory dynamics will be pivotal in establishing `Iluvium` as a major player in the dynamic and evolving `blockchain-based gaming industry`.
-
-'''
-
-
-scatter = '''
-#### Correlation Plot: Normalized Prices and Market Cap
-
-The plot illustrates a positive correlation between two variables, with the `x-axis` denoted as "*Normalized Prices*" and the `y-axis` labeled as "*Normalized Market Cap*." The plotted points on the graph indicate a discernible upward trend, depicting a direct and proportional relationship between the normalized market capitalization and the normalized prices.
-
-Furthermore, the scatter plot includes an inset legend that references "*Volume_normalized*" alongside a color gradient scale.
 '''
 
 ilv_axs_weth = '''
@@ -212,34 +218,82 @@ pair = '''
 The correlation heatmap for the token's performance indicates varying degrees of correlation between different metrics, such as `staking`, `liquidity pools`, and `gaming activities`. Positive correlations between certain metrics might suggest interconnectedness or shared influences, while negative correlations could imply divergent movements or counteracting effects.
 
 The matrix of plots further illustrates the distribution and trends of the token's performance metrics over time. It provides insights into the relationships between different variables, potentially highlighting patterns or anomalies in the data.
-
 '''
 
+future_1 = '''
+## Iluvium: Navigating Opportunities and Challenges in Blockchain-Based Gaming
+'''
+market = '''
+#### Market Landscape
+One key factor contributing to `Iluvium's` potential success is the burgeoning popularity of `blockchain-based gaming`. With the global gaming industry projected to reach `$200 billion by 2023`, the incorporation of blockchain technology is anticipated to propel substantial growth. `Iluvium's` distinctive approach positions it strategically to emerge as a leader in this evolving market.
+'''
+team = '''
+#### Team Dynamics
+The expertise of `Iluvium's` team, comprised of seasoned `blockchain developers`, `game designers`, and `marketing professionals`, adds a layer of assurance to the platform's success. This diverse skill set positions the team well for navigating the complexities of the `blockchain gaming landscape`.
+'''
+future = '''
+#### Community Traction
+`Iluvium` has already gained considerable traction in both the `blockchain` and `gaming communities`. The platform's `initial coin offering (ICO)` sold out in a mere `30 minutes`, underscoring strong investor interest. Support from prominent `blockchain investors` and `influencers` further validates `Iluvium's` potential impact in the space.
+
+#### Potential Challenges
+Despite promising prospects, `Iluvium` faces potential challenges on its journey. `Regulatory uncertainties` surrounding `blockchain-based gaming` pose a significant hurdle. Governments globally are grappling with the regulatory framework for cryptocurrency and blockchain technology, which could impact `Iluvium's` growth trajectory.
+
+`Competition` from other `blockchain-based gaming platforms` is another challenge. While `Iluvium's` innovative approach to `DeFi` and `NFTs` distinguishes it, the competitive landscape remains robust, with numerous projects vying for user and investor attention.
+
+#### Conclusion
+`Iluvium's` future appears promising, contingent upon its ability to navigate challenges and capitalize on opportunities. Continued innovation, community building, and adept management of regulatory dynamics will be pivotal in establishing `Iluvium` as a major player in the dynamic and evolving `blockchain-based gaming industry`.
+'''
+
+helper.set_background('Assets/Background/ILV Background.jpg')
 
 
-helper.set_background('ilv.jpg')
-
-# Streamlit app
 def main():
+
+    st.image('Assets/Logo/ILV Logo.webp' , width = 100)
+
     st.title("Illuvium Price Analysis")
+    st.markdown('By Chirag Chetnani and Ayush Singhal') # Planned to be palced as footer
     st.set_option('deprecation.showPyplotGlobalUse', False)
-    # Fetch Illuvium data
-    illuvium_df = helper.extract('illuvium')
-    axs = helper.extract('axie-infinity')
-    weth = helper.extract('weth')
 
     st.markdown(about_1)
+    st.image('Assets/Characs/Illuvial.webp' , width = 200)
+
+    col_1 , col_2 , col_3 = st.columns(3)
+
+    col_1.markdown(auto_battler)
+    col_1.image('Assets/World/ILV Auto.jpg' , width = 200)
+
+    col_2.markdown(open_world)
+    col_2.image('Assets/World/ILV Over.jpg' , width = 200)
+
+    col_3.markdown(arena)
+    col_3.image('Assets/World/ILV Arena.jpg' , width = 200)
+
+    st.image('Assets/Tweets/Karein Warwick 2.png')
+
+    st.markdown(investors)
+    st.image('Assets/About/ILV Money.png' , width = 800)
+
+    st.markdown(revenue)
+    st.image('Assets/About/ILV Revenue Generation.png' , width = 800)
+
+    # Fetch Illuvium data
+    illuvium_df = pd.read_csv('ilv.csv')
+    axs = pd.read_csv('axs.csv')
+    weth = pd.read_csv('weth.csv')
+    eth = pd.read_csv('eth.csv')
+    ilv_history = pd.read_csv('ilv_history.csv')
 
     # Display first 10 rows
-    st.subheader("Illuvium Price Data (First 10 rows)")
-    st.dataframe(illuvium_df.head(10))
+    # st.subheader("Illuvium Price Data (First 10 rows)")
+    # st.dataframe(illuvium_df.head(10))
 
     # Display summary statistics
     st.subheader("Summary Statistics")
-    st.write(illuvium_df.describe())
+    st.write(illuvium_df[illuvium_df.columns[2:]].describe())
 
-    # Plot Ethereum Price Over Time
-    st.subheader("Ethereum Price Over Time")
+    # Plot Illuvium Price Over Time
+    st.subheader("Illuvium Price Over Time")
     illuvium_df.index = pd.to_datetime(illuvium_df.index, unit='ms')
     axs.index = pd.to_datetime(axs.index, unit='ms')
     weth.index = pd.to_datetime(weth.index, unit='ms')
@@ -249,6 +303,7 @@ def main():
 
     # Histogram of Illuvium Prices
     st.subheader("Distribution of Illuvium Prices")
+    
     plt.hist(illuvium_df['prices'], bins=30, edgecolor='black')
     plt.xlabel('Price (USD)')
     plt.ylabel('Frequency')
@@ -280,7 +335,7 @@ def main():
     sns.set(style="whitegrid")  # Set the style to whitegrid for streamline appearance
 
     # Streamlit app
-    st.title('Scatter Plot')
+    st.markdown('## Scatter Plot')
 
     # Scatter plot for ILV
     st.subheader('Scatter Plot for ILV')
@@ -293,17 +348,117 @@ def main():
 
     st.markdown(scatter)
 
+    # Convert 'Time' to datetime format
+    illuvium_df['Time'] = pd.to_datetime(illuvium_df['Time'], unit='ms')
 
+    # Streamlit app
+    st.markdown('## Iluvium Price, Market Cap, and Volume Over Time')
+
+    # Plotting all three columns in a single plot
+    fig, ax = plt.subplots(figsize=(12, 8))
+
+    ax.plot(illuvium_df['Time'], illuvium_df['prices'], label='Price', marker='o')
+    ax.plot(illuvium_df['Time'], illuvium_df['MCap'], label='Market Cap', marker='o')
+    ax.plot(illuvium_df['Time'], illuvium_df['Volume'], label='Volume', marker='o')
+
+    ax.set_xlabel('Time')
+    ax.set_ylabel('Values')
+    ax.legend()
+    st.markdown(ilv_price_mcap)
+
+    # Display the plot using Streamlit
+    st.pyplot(fig)
+
+    st.markdown('## Historical In/Out of the Money')
+    # Convert DateTime to datetime format
+    ilv_history['DateTime'] = pd.to_datetime(ilv_history['DateTime'])
+
+    # Create the plot
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+    fig.add_trace(go.Scatter(x=ilv_history['DateTime'], y=ilv_history['In'], fill='tozeroy', name='In'), secondary_y=False)
+    fig.add_trace(go.Scatter(x=ilv_history['DateTime'], y=ilv_history['At'], fill='tozeroy', name='At'), secondary_y=False)
+    fig.add_trace(go.Scatter(x=ilv_history['DateTime'], y=ilv_history['Out'], fill='tozeroy', name='Out'), secondary_y=False)
+    fig.add_trace(go.Scatter(x=ilv_history['DateTime'], y=ilv_history['Price'], name='Price', line=dict(color='white')), secondary_y=True)
+    fig.layout.yaxis2.showgrid = False
+
+    # Display the plot in Streamlit
+    st.plotly_chart(fig)
+
+    ilv_active_adress = pd.read_csv("ilv_active_adress.csv")
+
+    # Convert 'DateTime' column to datetime format
+    ilv_active_adress['DateTime'] = pd.to_datetime(ilv_active_adress['DateTime'])
+
+    # Streamlit app title
+    st.markdown(' ## Daily Active Addresses')
+
+    # Create the plot using Plotly
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+    fig.add_trace(go.Scatter(x=ilv_active_adress['DateTime'], y=ilv_active_adress['New Addresses'], fill='tozeroy', name='New Addresses'), secondary_y=False)
+    fig.add_trace(go.Scatter(x=ilv_active_adress['DateTime'], y=ilv_active_adress['Active Addresses'], fill='tozeroy', name='Active Addresses'), secondary_y=False)
+    fig.add_trace(go.Scatter(x=ilv_active_adress['DateTime'], y=ilv_active_adress['Zero Balance Addresses'], fill='tozeroy', name='Zero Balance Addresses'), secondary_y=False)
+    fig.add_trace(go.Scatter(x=ilv_active_adress['DateTime'], y=ilv_active_adress['Price'], name='Price', line=dict(color='white')), secondary_y=True)
+    fig.layout.yaxis2.showgrid = False
+
+    # Display the plot in Streamlit
+    st.plotly_chart(fig)
+    st.markdown(dily_active_address)
+
+    ilv_transaction = pd.read_csv("Transc.csv")
+
+# Convert 'Date' column to datetime format
+    ilv_transaction['Date'] = pd.to_datetime(ilv_transaction['Date'])
+
+    # Streamlit app title
+    st.markdown(' ## Transaction Data')
+
+    # Create the plot using Plotly
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+    fig.add_trace(go.Scatter(x=ilv_transaction['Date'], y=ilv_transaction['Volume USD'], fill='tozeroy', name='Volume USD'), secondary_y=False)
+    fig.add_trace(go.Scatter(x=ilv_transaction['Date'], y=ilv_transaction['Price'], name='Price', line=dict(color='white')), secondary_y=True)
+    fig.add_trace(go.Scatter(x=ilv_transaction['Date'], y=ilv_transaction['Volume'], fill='tozeroy', name='Volume'), secondary_y=False)
+    fig.add_trace(go.Scatter(x=ilv_transaction['Date'], y=ilv_transaction['Transc'], fill='tozeroy', name='Transc'), secondary_y=False)
+    fig.layout.yaxis2.showgrid = False
+
+# Display the plot in Streamlit
+    st.plotly_chart(fig)
+    st.markdown(trans)
+    
+
+    # Display the plot using Streamlit
     # # Correlation Matrix
     # st.subheader("Correlation Matrix")
     # st.write(illuvium_df.corr())
     # st.pyplot(sns.heatmap(illuvium_df.corr(), annot=True, cmap='coolwarm', fmt=".2f"))
     
     ################# Compare all ##############################################
+
+    eth['Date'] = pd.to_datetime(eth['DateTime'])
+    # illuvium_df['Date'] = pd.to_datetime(illuvium_df['Time'], unit='ms')
+
+    # Streamlit app
+    st.markdown('## Ethereum vs Iluvium Prices Over Time')
+
+    # Plotting the data
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    ax.plot(eth['Date'], eth['Price'], label='Ethereum', marker='o')
+    ax.plot(illuvium_df['Time'], illuvium_df['prices'], label='Iluvium', marker='o')
+
+    # Adding labels and title
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Price (USD)')
+    ax.set_title('Ethereum vs Iluvium Prices Over Time')
+    ax.legend()
+
+    # Display the plot using Streamlit
+    st.pyplot(fig)
+    st.markdown(etherum_)
+    
     sns.set(style="whitegrid")  # Set the style to whitegrid for streamline appearance
 
     # Streamlit app
-    st.title('Price Trends')
+    st.markdown('## Price Trends')
 
     # Line plot for all assets
     st.subheader('Price Trends for ILV, AXS, and WETH')
@@ -372,22 +527,9 @@ def main():
     st.write(ilv.describe())
 
 
-    # # market analysis using candle stick
-    # st.title("Illuvium Price Analysis")
 
-    # # Display first 10 rows
-    # st.subheader("Illuvium Price Data (First 10 rows)")
-    # st.dataframe(illuvium_df.head(10))
-
-    # # Candlestick chart
-    # st.subheader("Illuvium Candlestick Chart")
-    # fig = px.candlestick(illuvium_df, x=illuvium_df.index, open=illuvium_df['Price'], high=illuvium_df['Price'],
-    #                      low=illuvium_df['Price'], close=illuvium_df['Price'], title='Illuvium Candlestick Chart')
-    # fig.update_xaxes(type='category')  # Make sure the x-axis is treated as categorical
-    # st.plotly_chart(fig)
-    # Load the CSV file
     df = pd.read_csv('TwExportly_illuviumio_tweets_2023_12_15 (1).csv')
-    st.title("Illuvium Tweet Analysis")
+    st.markdown("## Illuvium Tweet Analysis")
 
     # Process date and count tweets
     counts_df = process_date(df)
@@ -426,6 +568,23 @@ def main():
     plt.title('Tweet Count (Line) and Illuvium Price (Histogram) Over Time')
     st.pyplot()
     
+    ilv_volatile = pd.read_csv('ilv_volatile.csv')
+
+    # Convert 'DateTime' column to datetime format
+    ilv_volatile['DateTime'] = pd.to_datetime(ilv_volatile['DateTime'])
+
+    # Streamlit app title
+    st.markdown('## Volatility and Price')
+
+    # Create the plot using Plotly
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+    fig.add_trace(go.Scatter(x=ilv_volatile['DateTime'], y=ilv_volatile['Volatility'], fill='tozeroy', name='Volatility'), secondary_y=False)
+    fig.add_trace(go.Scatter(x=ilv_volatile['DateTime'], y=ilv_volatile['Price'], name='Price', line=dict(color='white')), secondary_y=True)
+    fig.layout.yaxis2.showgrid = False
+
+    # Display the plot in Streamlit
+    st.plotly_chart(fig)
+    st.markdown(voli)
 
     # Extract the 'text' column
     text_list = list(df['text'])
@@ -459,7 +618,30 @@ def main():
 
     st.markdown(sentiment_corr)
 
+   # st.markdown("<img src = 'https://pbs.twimg.com/media/GBeCXPnXsAAyFdo?format=png&name=small' width = 400>")
+    # st.markdown("<img src = 'https://pbs.twimg.com/media/GAo1h6DbYAAFQ1X?format=jpg&name=large' width = 400>")
+
+    st.markdown(future_1)
+
+    st.markdown(market)
+    st.image('Assets/Market/GBC.jpg' , width = 500)
+    st.image('Assets/Market/US.png')
+
+    st.markdown(team)
+    col_1 , col_2 , col_3 , col_4 , col_5 = st.columns(5)
+    col_1.markdown('#### Karien Warwick')
+    col_1.image('Assets/Team/Karien Warwick.jpg' , width = 100)
+    col_2.markdown('#### Aron Warwick')
+    col_2.image('Assets/Team/Aron Warwick.jpeg' , width = 100)
+    col_3.markdown('#### Grant Warwick')
+    col_3.image('Assets/Team/Grant Warwick.jpeg' , width = 100)
+    col_4.markdown('#### John Averly')
+    col_4.image('Assets/Team/John Averly.jpeg' , width = 100)
+    col_5.markdown('#### Danny Wilson')
+    col_5.image('Assets/Team/Danny Wilson.jpg' , width = 100)
+
     st.markdown(future)
+
 
     # plot_price_and_tweet_histogram(illuvium_df, counts_df)
 

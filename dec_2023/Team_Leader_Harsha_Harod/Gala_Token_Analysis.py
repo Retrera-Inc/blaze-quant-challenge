@@ -1,6 +1,9 @@
+# Gala_Token_analysis.py
 import streamlit as st
 from PIL import Image
 import pandas as pd
+
+
 
 def overview_page():
 
@@ -35,7 +38,7 @@ def overview_page():
 
     st.markdown("## GALA Games")
     img=Image.open("games.jpg")
-    st.columns(3)[1].image(img)
+    st.image(img)
     
     # Set background color to snow blue
     st.markdown(
@@ -66,7 +69,7 @@ def overview_page():
     # GALA music Section
     st.markdown("## GALA Music")
     img=Image.open("gala_music.jpg")
-    st.columns(3)[1].image(img)
+    st.image(img)
     
     st.markdown(
         """
@@ -104,10 +107,10 @@ def overview_page():
 # Display the link using st.markdown
     st.markdown(pdf_link, unsafe_allow_html=True)
 
-    # GALA Games Section
+    # GALA film Section
     st.markdown("## GALA Films")
     img=Image.open("gala_film.jpg")
-    st.columns(3)[1].image(img)
+    st.image(img)
     st.markdown(
         """
         <style>
@@ -121,7 +124,7 @@ def overview_page():
         unsafe_allow_html=True
     )
 
-    # GALA Music content inside the styled box
+    # GALA film content inside the styled box
     st.markdown(
         """
         <div class="gala-music-box">
@@ -386,6 +389,56 @@ def revenue_model_page():
 
     st.subheader("GALA Token Utility:")
     st.markdown("The Gala token (GALA) is the native cryptocurrency of the Gala Games ecosystem. Fees and payments within the platform may be denominated in GALA, and holding GALA tokens may confer certain benefits or discounts.")
+
+def Social_activity_page():
+    st.markdown(
+        """
+        <div style="text-align: center;">
+            <h2>Social Activity</h2>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    st.write("Gala token have made robust social presence to help its token holders and general public to stay updated on any advancements ,events or projects related to the token.Following are the various ways through which it engages with its community:")
+        
+
+    st.subheader("Live Streams and Webinars:")
+    st.write(
+        "Teams behind blockchain projects often organize live streams, webinars, or AMA (Ask Me Anything) sessions "
+        "where community members can interact with developers, ask questions, and get updates on the project's development."
+        "[Youtube](https://www.youtube.com/@GalaGames)"
+    )
+    img=Image.open("Screenshot 2023-12-17 210914.png")
+    st.image(img)
+
+    st.subheader("Gala Games on Medium:")
+    st.write(
+        "Blogs are written on Medium by Gala Games to keep the audience updated. "
+        "It has over 19k followers on its Medium channel."
+        "[Medium](https://gogalagames.medium.com/)"
+    )
+    img=Image.open("Screenshot 2023-12-17 211108.png")
+    st.image(img)
+
+    st.subheader("Gala on Discord:")
+    st.write(
+        "Gala has made its presence on the Discord server with various channels for Gala Games, Gala Music, Gala Film, "
+        "Vox Gala Film, and also for its popular game SpiderTank. It has over 190k members on its Gala Games server."
+        "[Discord](https://discord.com/invite/kCwZquRJ9x)"
+    )
+    img=Image.open("discord_gala.png")
+    st.image(img)
+
+    st.subheader("Other Social Media:")
+    st.write(
+        "It has various other social media channels like Instagram, Twitter and Coin Market Cap."
+        "[Instagram](https://www.instagram.com/gogalagames/)     "
+        "[Twitter](https://twitter.com/GoGalaGames)     "
+        "[Coin Market Cap](https://coinmarketcap.com/community/profile/Gala_CMC/)    "
+    )
+    img=Image.open("social_media.png")
+    st.image(img)
+
 def project_milestone_page():
     img=Image.open("792774 (1).jpg")
     st.columns(3)[1].image(img)
@@ -588,6 +641,7 @@ def main():
         "Tokenomics": tokenomics_page,
         "Governance Mechanism": governance_mechanism_page,
         "Revenue Model and Fees": revenue_model_page,
+        "Social Activity": Social_activity_page,
         "Project Milestone": project_milestone_page,
         "Potential Risk Evaluation": risk_evaluation_page,
         "Future Prospects": future_prospects_page,
@@ -614,3 +668,4 @@ selected_website = st.sidebar.selectbox("List of Reference website", reference_w
 
 if __name__ == "__main__":
     main()
+

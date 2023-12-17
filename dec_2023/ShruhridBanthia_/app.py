@@ -35,7 +35,7 @@ with st.container():
 # Section 3: Price-related Analysis
 with st.container():
     st.header("2. MANA Token Price Analysis")
-    
+
     st.subheader("Overview")
     st.markdown(
         """
@@ -63,11 +63,12 @@ with st.container():
         - __High Time:__ The time of the day when the price of the token was the highest. *(in PST)*
         - __Low Time:__ The time of the day when the price of the token was the lowest. *(in PST)* 
         - __Moving Average:__ The Moving Average of the token. *(Average of the prices of the token in the last 20 days)*
-        """)
-        # - __Close Ratio:__ The ratio of the closing price to the highest price of the token in the day. *(Close Price / High Price)*
-        # - __Price To Metcalf Ratio__: The ratio of the price of the token to the Metcalf's law value of the token. *(Price / Metcalf's law value)*
-        # - __Metcalf's Law Value__: The Metcalf's law value of the token. *(Market Cap / Number of users)*
-        # - __Boilinger Band:__ The Boilinger Band of the token. *(Moving Average + 2 * Standard Deviation)*
+        """
+    )
+    # - __Close Ratio:__ The ratio of the closing price to the highest price of the token in the day. *(Close Price / High Price)*
+    # - __Price To Metcalf Ratio__: The ratio of the price of the token to the Metcalf's law value of the token. *(Price / Metcalf's law value)*
+    # - __Metcalf's Law Value__: The Metcalf's law value of the token. *(Market Cap / Number of users)*
+    # - __Boilinger Band:__ The Boilinger Band of the token. *(Moving Average + 2 * Standard Deviation)*
     st.markdown("---")
     st.subheader("Historical Price Analysis")
 
@@ -79,23 +80,26 @@ with st.container():
     )
     image_path = "Images/mana_historic_price.png"
     image = Image.open(image_path)
-    st.markdown('**Historic Trends Visualization**')
+    st.markdown("**Historic Trends Visualization**")
     st.image(image)
 
     st.markdown(""" **Comments on the plot:** """)
-    st.markdown("""
+    st.markdown(
+        """
             - The standout inference from the plot is the huge increase in the price of the token in the last quarter of 2021. This was due to the announcement of the __Metaverse__ by Facebook on 28th October 2021. A report on 1st of November 2021 by [Blockchain.news](https://blockchain.news/news/metaverses-mana-token-price-leaps-after-facebook-rebrand-to-meta) states "the price of a MANA token, which can be used in a metaverse leapt 164 percent in 12 hours."
             - The sudden metaverse frenzy brought a short lived spike in the price and market cap of the token, and rather much shorter lived spike in the total volume of the token.
-                """)
-    
+                """
+    )
+
     st.markdown(""" --- """)
     st.markdown(
         """
         ### Year-Wise Price Development 
 
         The following plots show the price development of the MANA token in each year since its inception in 2017. The prices have been normalized on a scale of 0 to 1 for better comparison minimizing the effect of varied mean prices through the years.
-""")
-    
+"""
+    )
+
     col1, col2 = st.columns(2)
     col1.markdown("**Price Development in 2017|20|21**")
     col2.markdown("**Price Development in 2018|19|22|23**")
@@ -114,22 +118,26 @@ with st.container():
     image = Image.open(image_path)
     col2.image(image)
     col1.markdown("**Inference and Comments**")
-    col1.markdown("""
+    col1.markdown(
+        """
                   - The price of the token has remained nearly constant in the first half of each of the years.
                   - The price of the token has seen a sudden spike in the second half of each of the years.
                   - The 2017 spike was due to the **early sale of the token**.
                   - The first minor peak in February 2020 occured just after **Decentraland went public and set up the DAO.**
                   - As per Report in [Nonfungible.com](https://https://nonfungible.com/news/metaverse/discovery-of-decentraland) the peak was short lived due to the pandemic related lockdowns, but it grabbed pace again in the second half of the year because "**Decentraland stepped up its collaborations with the arts sector**"
                   - The 2021 spike was due to the announcement of the __Metaverse__ by Facebook on 28th October 2021.
-        """)
+        """
+    )
     col2.markdown("**Inference and Comments**")
-    col2.markdown("""
+    col2.markdown(
+        """
         - The price of the token has overall shown a downward trend in the years 2018, 2019, 2022 and 2023.
         - In April 2018 the price of the token saw a sudden rise. [Nonfungible.com](https://https://nonfungible.com/news/metaverse/discovery-of-decentraland) states that "the developers announced on April 23rd the **release of the SDK (development kit) alpha to start building and modeling scenes according to their wishes."** This led to the sudden rise in the price of the token.
         - The year 2022 is often called the **"crypto winter"**. The price of the token has seen a downward trend in the year 2022. This is due to the fact that the crypto market was in a bear run in the year 2022.
         - The steady rise and thereafter stability of the price in the first half of 2019 was due to the fact that Decentraland released the **"Drag and Drop Builder"** allowing an increased user base.
-    """)
-    
+    """
+    )
+
     st.markdown("---")
     st.subheader("Token Price Variables Analysis for the past 3 years")
     st.markdown(
@@ -138,7 +146,7 @@ with st.container():
         """
     )
     image_path = "Images/mana_correlation_3_year.png"
-    st.markdown('**Correlation Visualization**')
+    st.markdown("**Correlation Visualization**")
     image = Image.open(image_path)
     st.image(image)
 
@@ -155,11 +163,12 @@ with st.container():
         """
     )
 
-    
     st.markdown("---")
     st.subheader("Token Price Variables Analysis for 2023")
 
-    st.markdown("""We have seen the correlation between various price related variables for the past 3 years. Now, let us see the correlation between various price related variables for the year 2023. Along with this we will also analyze the correlation between the High Time and the Low Time of the token price for the year 2023.""")
+    st.markdown(
+        """We have seen the correlation between various price related variables for the past 3 years. Now, let us see the correlation between various price related variables for the year 2023. Along with this we will also analyze the correlation between the High Time and the Low Time of the token price for the year 2023."""
+    )
 
     col1, col2 = st.columns(2)
     col1.markdown("**Correlation among price related variables**")
@@ -171,20 +180,26 @@ with st.container():
     image = Image.open(image_path)
     col2.image(image)
 
-    col1.markdown("""
+    col1.markdown(
+        """
         - The correlation among price related variables is very similar to that of the past 3 years.
-                  """)
-    col2.markdown("""
+                  """
+    )
+    col2.markdown(
+        """
         - The correlation between the High Time and the Low Time is -0.43. This indicates that the **time of the day** when the price of the token is **highest** is **inversly dependent** on the time of the day when the price of the token is **lowest**. This is an interesting observation. This would also mean that the **erratic nature** of the price of the token is **not very high.** This indicates that the hourly(or minute by minute) volatility is not very high.
-                  """)
+                  """
+    )
 
     st.markdown("---")
     st.subheader("Do the Day of the Week Affect the Price of the Token?")
 
-    st.markdown("""
+    st.markdown(
+        """
     An interesting aspect of token price fluctuations is the weekly price trend. 
     The following plots show the distribution of the top 10 extreme differences in the daily price(close - open) of the MANA token for the past 3 years and that of 2023. Incase of the same day having multiple entries in the top 10 extreme difference list we stack them together.  
-    """)
+    """
+    )
 
     col1, col2 = st.columns(2)
     col1.markdown(""" **Result for top 10 extreme difference in past 3 years** """)
@@ -196,33 +211,43 @@ with st.container():
     image = Image.open(image_path)
     col2.image(image)
 
-    col1.markdown("""
+    col1.markdown(
+        """
         - The Facebook to Meta announcement on 28th October plays the dominant role. Creating the **largest extreme difference on Friday Saturday, 30th October 2021**. The scale of the reaction(rise of **2.7 USD in two days**) to this announcement also skews the distribution of the extreme differences in the past 3 years.
         - The consecuent day of Sunday, 31st October 2021 saw a repurcussive reaction to the meteoric growth with an **extreme lower difference of -0.6 USD.**
-                """)
-    
-    col2.markdown("""
+                """
+    )
+
+    col2.markdown(
+        """
         - There are a numebr of interesting observations here.
         - **Friday** has the **highest number and magnitude of high extreme difference.** While it does not have even a single entry in the top 10 lowest differences.
         - There is a **steady increase in the contribution to the highest highs of the token as we move through the week.** This is inline with the statement at [CorporateFinanceInstitute](https://corporatefinanceinstitute.com/resources/cryptocurrency/best-time-to-buy-cryptocurrency/) that states, "Generally, cryptocurrency prices start low on Monday and rise throughout the week. When the weekend hits, prices tend to drop until market activity begins the following Monday." 
         - It would be conclusive to infer that beginning of the week, Monday(also Sunday), is the best time to buy the token. While Friday might just be the best time to sell the token.
-        """)
-    
-    st.markdown("---")
-    st.subheader("Is there a particular time of the day when the price of the token is highest or lowest?")
+        """
+    )
 
-    st.markdown("""
+    st.markdown("---")
+    st.subheader(
+        "Is there a particular time of the day when the price of the token is highest or lowest?"
+    )
+
+    st.markdown(
+        """
         The following scatter plot shows the distribution of the High Time and the Low Time with respect to the time (normalized for 0 to 24) and the day of the year 2023. The larger the size of the dot, the higher the high at the high time. Similarly, the larger the size of the dot, the lower the low at the low time.
-""")
+"""
+    )
     image_path = "Images/Daily_Extreme_Value.png"
     image = Image.open(image_path)
     st.image(image)
 
-    st.markdown("""
+    st.markdown(
+        """
         - The distribution tends to be more concentrated towards the midnight hours of PST time. Given that both High time and low time occur more frequently in the midnight hours, it is safe to assume that the price of the token is more volatile in the midnight hours.
         - This volatility often tends to be so high that they contribute the the highest highs and the lowest lows of the token price of that day.
             
-""")
+"""
+    )
     st.markdown("---")
 
 # Section 4: Competition Analysis
@@ -332,11 +357,11 @@ with st.container():
         - The market cap of Decentraland MANA at ATH is __0.67 times__ the market cap of Theta Network at ATH.
         - Decentraland MANA ranks consisntently at around 3rd or 4th position in terms of market cap.
         - One important observation is the consistent dominance of SAND over MANA in terms of market cap.
-        - The crpto market __bull__ run of 2021 is clearly visible in both the plots.
+        - The crypto market __bull__ run of 2021 is clearly visible in both the plots.
         
         - __Qualitatively__, we can reason that Theta Network which address the singular problem of video streaming has a higher market cap than Decentraland MANA which is a virtual reality platform providing streaming, gaming, and other services.
-            - This focussed approach of Theta Network is an indicator for better investments and thus a higher market cap.
-            - This is also the reason for its dominance over SAND and various other tokens which are aiming to provide a virtual reality platform.
+            - This focussed approach of Theta Network is an indicator for better investments and thus a higher market cap which is inline with this statement by [CryptoCurrencyNetwork](https://www.ccn.com/analysis/theta-network-price-prediction/): "The principle behind the Theta Network is a good one – finding two of the biggest tech growth sectors and fusing them".
+            - This is also the reason for its dominance over MANA and various other tokens which are aiming to provide a virtual reality platform.
         """
     )
     col1, col2 = st.columns(2)
@@ -361,7 +386,7 @@ with st.container():
         - __Qualitatively__, we see that even though the use case of both MANA and SAND is similar, the transaction volume of SAND is higher than that of MANA. Following are the possible speculations for this:
             - SAND was launched much earlier in 2011 as compare to MANA in 2017 and is a more mature platform and has been in the market for a longer time.
             - Compared to MANA, SAND has a higher real estate supply than Decentraland. Moreover, due the maturity, it has better options for users to purchase virtual land.
-            - Decentraland MANA has lesser user generated content than SAND, and the gaming experience is not as good as SAND. Thus, the transaction volume is lower.
+            - Decentraland MANA has lesser user generated content than SAND, and the gaming experience is not as good as SAND as implied by [AMB Crypto](https://ambcrypto.com/blog/decentraland-vs-sandbox-a-detailed-comparison-2023/#:~:text=In%20the%20Decentraland%20marketplace%2C%20there's,interacting%20with%20the%20Ethereum%20blockchain.). Thus, the transaction volume is lower.
             
         """
     )
@@ -387,7 +412,7 @@ with st.container():
         
         - __Qualitatively__, we can analyse the huge difference between ILV and rest of tokens including Decentraland MANA. Following are the possible speculations for this:
             - ILV is a very new token. It was launched in the mid of 2021. Thus, it has not yet been in the market for a long time resulting in a higher price.
-            - Further, ILV is anticipated to be a breakthrough in AAA crypto gaming. This anticipation has led to a huge demand for the token and thus the price is very high.
+            - Further, ILV is anticipated to be a breakthrough in AAA crypto gaming as suggested by [VanEck](https://www.vaneck.com/us/en/blogs/digital-assets/can-illuvium-become-crypto-gamings-aaa-breakthrough/). This anticipation has led to a huge demand for the token and thus the price is very high.
             - However, overall ILV has smaller market cap and transaction volume than MANA. Once, ILV is more mature and has more users, it will be able to compete with MANA. According to current context, MANA is a better investment than ILV.
         """
     )
@@ -544,7 +569,7 @@ with st.container():
 
 # Section 5: Social Media Analysis
 with st.container():
-    st.header("4. Current Social Media Sentiment and Conclusion")
+    st.header("4. Current Social Media Sentiment")
     # Additional analysis or features can be added here
     st.markdown(
         """
@@ -575,8 +600,10 @@ with st.container():
     )
     st.markdown("---")
 
-    st.markdown("**Conclusion**")
+    st.header("Conclusion")
+    # st.markdown("**Conclusion**")
     st.markdown(
         """
         This report is an exhaustive study on the price variation of the Decentraland MANA token. Correlations between various price related variables have been studied. The price development of the token has been studied for the past 3 years. In depth analysis of the data has been done to identify annual, weekly and daily trends in the price of the token. It has been compared with its competitors. Lastly, the social media sentiment analysis has been presented to understand the current market sentiment towards the token.
-        """)
+        """
+    )

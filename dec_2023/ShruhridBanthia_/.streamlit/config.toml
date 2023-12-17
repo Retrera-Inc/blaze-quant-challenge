@@ -1,2 +1,4 @@
 [theme]
 base="light"
+backgroundColor="#FFF9BD"
+font="monospace"

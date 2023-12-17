@@ -512,7 +512,7 @@ def tech():
     st.write("Above hypothesis is strongly backed by the above data results, as the correlation between the price of inj and btc increases we see an increase in inj returns, social activity also plays a big role in this sudden price surge")
     st.write("As the crypto market surges, whales keep looking for ALT-Coins which have potential and it turned out to be INJ as INJ has increased by almost 85% in just the last 5 days")
     st.header("Analyzing different protocols in INJ")
-    df=pd.read_csv('chain-dataset-Injective.csv')
+    df=pd.read_csv('dec_2023/Kalpit/chain-dataset-Injective.csv')
     df = df.transpose()
     df = df.iloc[1:, :]
     lists=[list(df[1]),list(df[3]),list(df[4]),list(df[5]),list(df[6])]

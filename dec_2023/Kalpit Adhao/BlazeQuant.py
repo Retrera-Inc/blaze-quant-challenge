@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import pandas as pd
 import yfinance as yf
 import streamlit as st
@@ -11,7 +5,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.subplots as sp
 # import data
-import plotly.offline as pyo
 import plotly.graph_objs as go
 import numpy as np
 theme_plotly = None
@@ -863,7 +856,7 @@ def sma():
         l=[]
         l=(stats)
         df=pd.DataFrame(l)
-        df#44
+        
 #         print(df)
 #         f.append(df)
         c1, c2 = st.columns([1,2])
@@ -946,7 +939,3 @@ pages[page_choice]()
 
 
 # In[ ]:
-
-
-
-

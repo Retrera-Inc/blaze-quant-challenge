@@ -801,15 +801,15 @@ def sma():
             mime='text/csv',
         )
         data1=data
-        fast_period=20
-        slow_period=50
+        fast_period=60
+        slow_period=150
         feess=0.00
 #         fast_period=st.sidebar.slider("fast_period", min_value=0, max_value=200, value=50)
 #         slow_period=st.sidebar.slider("slow_period", min_value=fast_period+1, max_value=500, value=200)
 #         feess=st.sidebar.slider("Transaction fees", min_value=0.0, max_value=1.0, value=0.001)
         st.sidebar.write("Customize the Default parameters")
-        fft=st.sidebar.slider("fast_period", min_value=0, max_value=200, value=20)
-        ss=st.sidebar.slider("slow_period", min_value=fft+1, max_value=500, value=50)
+        fft=st.sidebar.slider("fast_period", min_value=0, max_value=200, value=60)
+        ss=st.sidebar.slider("slow_period", min_value=fft+1, max_value=500, value=150)
         ff=st.sidebar.slider("Transaction fees", min_value=0.0, max_value=1.0, value=0.00)
         if st.sidebar.button("Submit the new input parameters"):
                 fast_period=fft

@@ -314,7 +314,7 @@ def sent():
     st.write("Some highlights about Injective on social media 943 unique individuals are talking about Injective and it is ranked #13 in most mentions and activity from collected posts. In the last 24 hours, across all social media platforms, Injective has an average sentiment score of 3 out of 5. Finally, Injective is becoming more newsworthy, with 5 news articles published about Injective. This is a 60% increase in news volume compared to yesterday. On Twitter, people are mostly bullish about Injective. There were 44.23% of tweets with bullish sentiment compared to 9.18% of tweets with a bearish sentiment about Injective. 46.58% of tweets were neutral about Injective. These sentiments are based on 1960 tweets. On Reddit, Injective was mentioned in 13 Reddit posts and there were 20 comments about Injective. On average, there were more upvotes compared to downvotes on Reddit posts and more upvotes compared to downvotes on Reddit comments.")
     
     st.subheader("Socials Sentiment of the past 7 days")
-    df=pd.read_csv("https://drive.google.com/file/d/180B4-yWal7FDTKqsCWyrv9KeRSfCJmfR/view?usp=sharing")
+    df=pd.read_csv("dec_2023/Kalpit/ITB_inj_telegram_sentiment_undefined_2023-12-15T17_53_47.431Z.csv")
     lists=[(df['Positive']),(df['Neutral']),(df['Price']),(df['Negative'])]
     labels = ['Positive', 'Neutral', 'Price', 'Negative']
     import matplotlib.pyplot as plt

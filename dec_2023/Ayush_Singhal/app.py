@@ -247,6 +247,7 @@ Despite promising prospects, `Iluvium` faces potential challenges on its journey
 helper.set_background('Assets/Background/ILV Background.jpg')
 
 
+@st.cache_data
 def main():
 
     st.image('Assets/Logo/ILV Logo.webp' , width = 100)

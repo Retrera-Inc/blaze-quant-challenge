@@ -303,14 +303,16 @@ def main():
 
     # Histogram of Illuvium Prices
     st.subheader("Distribution of Illuvium Prices")
-    
-    plt.hist(illuvium_df['prices'], bins=30, edgecolor='black')
-    plt.xlabel('Price (USD)')
-    plt.ylabel('Frequency')
-    st.pyplot()
 
-    st.markdown(price_dist)
+    # Create a histogram using Plotly Express
+    fig = px.histogram(illuvium_df, x='prices', nbins=30, labels={'prices': 'Price (USD)', 'count': 'Frequency'})
+    fig.update_layout(showlegend=False)
 
+    # Display the plot in Streamlit
+    st.plotly_chart(fig)
+
+    # Additional Markdown content (replace this with your actual content)
+    st.markdown("Additional content related to the price distribution.")
     # Plot Illuvium Daily Returns
     st.subheader("Illuvium Daily Returns")
     illuvium_df['Daily Returns'] = illuvium_df['prices'].pct_change()
@@ -338,13 +340,21 @@ def main():
     st.markdown('## Scatter Plot')
 
     # Scatter plot for ILV
+    # Streamlit app title
     st.subheader('Scatter Plot for ILV')
-    fig_ilv, ax_ilv = plt.subplots(figsize=(8, 6))
-    sns.scatterplot(x='prices_normalized', y='MCap_normalized', hue='Volume_normalized', data=illuvium_df, ax=ax_ilv)
-    plt.xlabel('Normalized Prices')
-    plt.ylabel('Normalized Market Cap')
-    plt.title('ILV Scatter Plot')
-    st.pyplot(fig_ilv)
+
+    # Create a scatter plot using Plotly Express
+    fig = px.scatter(
+        illuvium_df,
+        x='prices_normalized',
+        y='MCap_normalized',
+        color='Volume_normalized',
+        labels={'prices_normalized': 'Normalized Prices', 'MCap_normalized': 'Normalized Market Cap'},
+        title='ILV Scatter Plot',
+    )
+
+# Display the plot in Streamlit
+    st.plotly_chart(fig)
 
     st.markdown(scatter)
 
@@ -432,7 +442,9 @@ def main():
     # st.pyplot(sns.heatmap(illuvium_df.corr(), annot=True, cmap='coolwarm', fmt=".2f"))
     
     ################# Compare all ##############################################
-
+    for i in range(len(eth)):
+      eth['DateTime'][i] = eth['DateTime'][i][:10]
+     
     eth['Date'] = pd.to_datetime(eth['DateTime'])
     # illuvium_df['Date'] = pd.to_datetime(illuvium_df['Time'], unit='ms')
 

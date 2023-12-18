@@ -8,7 +8,7 @@ import pandas as pd
 def overview_page():
 
     
-    img=Image.open("gala_logo.jpg")
+    img=Image.open("Assets/gala_logo.jpg")
     st.columns(3)[1].image(img)
 
    
@@ -37,7 +37,7 @@ def overview_page():
     
 
     st.markdown("## GALA Games")
-    img=Image.open("games.jpg")
+    img=Image.open("Assets/games.jpg")
     st.image(img)
     
     # Set background color to snow blue
@@ -68,7 +68,7 @@ def overview_page():
 
     # GALA music Section
     st.markdown("## GALA Music")
-    img=Image.open("gala_music.jpg")
+    img=Image.open("Assets/gala_music.jpg")
     st.image(img)
     
     st.markdown(
@@ -102,14 +102,14 @@ def overview_page():
         return download_link
 
 # Create a link to download the PDF
-    pdf_link =create_download_link("Download Link","Gala_Music_Whitepaper.pdf")
+    pdf_link =create_download_link("Download Link","Assets/Gala_Music_Whitepaper.pdf")
 
 # Display the link using st.markdown
     st.markdown(pdf_link, unsafe_allow_html=True)
 
     # GALA film Section
     st.markdown("## GALA Films")
-    img=Image.open("gala_film.jpg")
+    img=Image.open("Assets/gala_film.jpg")
     st.image(img)
     st.markdown(
         """
@@ -210,7 +210,7 @@ def tokenomics_page():
         """,
         unsafe_allow_html=True
     )
-    img=Image.open("Screenshot 2023-12-14 180544.png")
+    img=Image.open("Assets/Screenshot 2023-12-14 180544.png")
     st.image(img,caption="All time high data graph  credit=coin market cap",use_column_width=True)
     #Token holder
     st.write("""### Token Holders""")
@@ -221,13 +221,13 @@ def tokenomics_page():
         - Total Token Holders: 215,548
         """
     )
-    img=Image.open("top100token_holders.png")
+    img=Image.open("Assets/top100token_holders.png")
     st.image(img,caption="Top 100 Gala Token holders  credit=Etherscan.io",use_column_width=True)
 
 
     st.write("""### Market cap""")
     st.write("""##### Gala is 6th among 28 gaming tokens""")
-    img=Image.open("top gaming token by marketcap.png")
+    img=Image.open("Assets/top gaming token by marketcap.png")
     st.image(img,caption="Preview of Top gaming token by marketcap ",use_column_width=True)
 
     #need to add image here
@@ -289,7 +289,7 @@ def tokenomics_page():
     st.markdown("- A sudden increase in volume might indicate a surge in interest, news, or significant price movement.")
     st.markdown("- In 2023, the token's performance has shown some improvement, although it still remains far from its peak period in late 2021.The token's value rose to 0.0624 at the end of January this year. However, following this surge, the price experienced a downturn. A notable low point occurred during the start of June when the token's value dropped to 0.01879.")
     st.markdown("- Below is the data for the number tokenholders by the amount they invest and for the time they hold the tokens over a period of 3 months ")
-    img=Image.open("hhh.png")
+    img=Image.open("Assets/hhh.png")
     st.image(img,use_column_width=True)
     st.write("**Moving Average and Bollinger Bands**")
     st.write("- Rolling Mean: Smoothens short-term fluctuations in Gala token prices, revealing underlying trends.")
@@ -297,7 +297,7 @@ def tokenomics_page():
     st.write("**Plot with Rolling Mean and Bollinger Bands**")
     st.write("- Overlays Gala token closing prices with the rolling mean and Bollinger Bands.")
     st.write("- Aids in identifying potential buy/sell signals based on the deviation from the rolling mean.")
-    img=Image.open("Screenshot 2023-12-16 120929.png")
+    img=Image.open("Assets/Screenshot 2023-12-16 120929.png")
     st.image(img,caption="Data from Dec14 2021-Dec 12 2023",use_column_width=True)
 
 def governance_mechanism_page():
@@ -355,7 +355,7 @@ def governance_mechanism_page():
         "- Host entertainment and film experiences, analogous to Player Nodes.",
         unsafe_allow_html=True
     )
-    img=Image.open("gala_nodes_governance.jpg")
+    img=Image.open("Assets/gala_nodes_governance.jpg")
     st.image(img, use_column_width=True)
     
 
@@ -408,7 +408,7 @@ def Social_activity_page():
         "where community members can interact with developers, ask questions, and get updates on the project's development."
         "[Youtube](https://www.youtube.com/@GalaGames)"
     )
-    img=Image.open("Screenshot 2023-12-17 210914.png")
+    img=Image.open("Assets/Screenshot 2023-12-17 210914.png")
     st.image(img)
 
     st.subheader("Gala Games on Medium:")
@@ -417,7 +417,7 @@ def Social_activity_page():
         "It has over 19k followers on its Medium channel."
         "[Medium](https://gogalagames.medium.com/)"
     )
-    img=Image.open("Screenshot 2023-12-17 211108.png")
+    img=Image.open("Assets/Screenshot 2023-12-17 211108.png")
     st.image(img)
 
     st.subheader("Gala on Discord:")
@@ -426,7 +426,7 @@ def Social_activity_page():
         "Vox Gala Film, and also for its popular game SpiderTank. It has over 190k members on its Gala Games server."
         "[Discord](https://discord.com/invite/kCwZquRJ9x)"
     )
-    img=Image.open("discord_gala.png")
+    img=Image.open("Assets/discord_gala.png")
     st.image(img)
 
     st.subheader("Other Social Media:")
@@ -436,11 +436,11 @@ def Social_activity_page():
         "[Twitter](https://twitter.com/GoGalaGames)     "
         "[Coin Market Cap](https://coinmarketcap.com/community/profile/Gala_CMC/)    "
     )
-    img=Image.open("social_media.png")
+    img=Image.open("Assets/social_media.png")
     st.image(img)
 
 def project_milestone_page():
-    img=Image.open("792774 (1).jpg")
+    img=Image.open("Assets/792774 (1).jpg")
     st.columns(3)[1].image(img)
     st.markdown(
         """
@@ -495,7 +495,7 @@ def project_milestone_page():
     
 
 def risk_evaluation_page():
-    img=Image.open("OIP (1).jpg")
+    img=Image.open("Assets/OIP (1).jpg")
     st.columns(3)[1].image(img)
     st.markdown(
         """
@@ -532,7 +532,7 @@ def risk_evaluation_page():
         "The gaming industry is highly competitive, and there are other blockchain-based gaming platforms that GALA competes with. "
         "In addition to other blockchain-based gaming platforms, GALA also competes with traditional gaming platforms. As a result, if GALA is unable to differentiate itself from traditional gaming platforms or compete with other blockchain-based gaming platforms, it may struggle to gain adoption and could experience a decrease in demand for its tokens, leading to a decline in its price."
     )
-    img=Image.open("Screenshot 2023-12-16 102313.png")
+    img=Image.open("Assets/Screenshot 2023-12-16 102313.png")
     st.image(img,caption="Comparison with AXS over a period of 1 month",use_column_width=True)
 
 
@@ -565,7 +565,7 @@ def risk_evaluation_page():
         "There seems to be confusion among users as well as influencers on social media regarding the burn and mint process of Gala tokens, which is creating misinterpretation of max supply and the circulating supply in the market. This can be issued to maintain the transparency of the process and build trust."
     )
     
-    img=Image.open("Screenshot 2023-12-15 123526.png")
+    img=Image.open("Assets/Screenshot 2023-12-15 123526.png")
     st.image(img,use_column_width=True)
 
 def future_prospects_page():
@@ -597,7 +597,7 @@ def future_prospects_page():
     
     st.subheader("Gala in Metaverse")
     
-    img=Image.open("Screenshot 2023-12-16 104016.jpg")
+    img=Image.open("Assets/Screenshot 2023-12-16 104016.jpg")
     st.image(img,use_column_width=True)
 
     st.markdown(

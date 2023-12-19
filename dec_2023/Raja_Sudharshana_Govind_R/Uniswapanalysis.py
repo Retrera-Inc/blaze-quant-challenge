@@ -332,3 +332,172 @@ api_key = "da649765151f98b2bde0e0818556fed1c590feed5c4c1013d3fee4ce034cb831"
 # Display UNI on-chain data insights line chart
 display_on_chain_data_line_chart(api_key)
 
+st.subheader("Future Aspects")
+uniswap_fa = """_Future prospects involve assessing the anticipated growth, adoption, and success of a cryptocurrency project. This forward-looking analysis aids investors and stakeholders in understanding the project's long-term viability and potential trajectory in the evolving blockchain landscape_"""
+st.write(uniswap_fa)
+st.latex("Future Price=Current Price×(1 + Expected Percentage Growth)")
+st.write("This formula provides a basic estimation of the future price based on an assumed percentage growth rate.")
+st.latex("Future Market Cap=Future Price×Total Circulating Supply")
+st.write("This formula estimates the future market capitalization based on the projected future price and the total circulating supply.")
+
+# Function to fetch UNI token historical price data from the CryptoCompare API
+def fetch_uni_historical_price(api_key):
+    try:
+        # Make an API request to fetch UNI token historical price data
+        url = f"https://min-api.cryptocompare.com/data/v2/histoday?fsym=UNI&tsym=USD&limit=365&api_key={api_key}"
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an HTTPError for bad responses
+        data = response.json()
+
+        # Assuming the API returns historical price data
+        historical_data = data.get("Data", {}).get("Data", [])
+
+        if not historical_data:
+            return pd.DataFrame()
+
+        # Extract relevant historical price data
+        df_historical_price = pd.DataFrame(historical_data)
+        df_historical_price['time'] = pd.to_datetime(df_historical_price['time'], unit='s')
+        df_historical_price = df_historical_price[['time', 'close']]
+
+        return df_historical_price
+
+    except requests.exceptions.RequestException as e:
+        st.error(f"Error fetching UNI historical price data from the CryptoCompare API: {e}")
+        return pd.DataFrame()
+
+# Function to display UNI token historical price data in a line chart
+def display_historical_price_line_chart(api_key):
+    # Fetch historical price data from the API
+    df_historical_price = fetch_uni_historical_price(api_key)
+
+    # Check if historical price data is available before creating the line chart
+    if not df_historical_price.empty:
+        # Display line chart for historical price using Plotly Express
+        fig_historical_price = px.line(df_historical_price, x='time', y='close', title='UNI Historical Price',
+                                        labels={'close': 'Closing Price (USD)'})
+        st.plotly_chart(fig_historical_price)
+
+    else:
+        st.warning("Historical price data is not available.")
+
+# Replace "YOUR_CRYPTOCOMPARE_API_KEY" with your actual CryptoCompare API key
+api_key = "da649765151f98b2bde0e0818556fed1c590feed5c4c1013d3fee4ce034cb831"
+
+# Display UNI historical price line chart
+display_historical_price_line_chart(api_key)
+
+st.write("Note: The displayed historical price data is for demonstration purposes. Adjustments may be needed based on the specific future aspects you are interested in.")
+
+st.header("Tokenomics")
+uni_swap_tok="""_Tokenomics refers to the economic model and structure governing a cryptocurrency. It encompasses factors such as token distribution, supply mechanisms, and associated policies, providing insights into the token's utility, governance, and overall design._"""
+st.write(uni_swap_tok)
+st.latex("Total Token Supply=Circulating Supply+Locked/Reserved Tokens+Burned Tokens")
+st.write("This formula calculates the total number of tokens, including those in circulation, reserved for specific purposes, and those that have been burned or destroyed.")
+st.latex("Token Distribution Percentage=(Number of Tokens in a Wallet or Category /Total Token Supply ) ×100")
+st.write("This formula calculates the percentage of tokens held by a specific category, such as team members, investors, or the community.")
+st.latex("Inflation Rate=(Newly Created Tokens/Current Total Token Supply)*100")
+st.write("This formula calculates the percentage increase in the token supply due to new tokens being created (applies to inflationary tokens)")
+# Function to fetch UNI tokenomics data from the API
+
+
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+import requests
+
+# Function to fetch UNI token supply data from the CryptoCompare API
+def fetch_uni_token_supply(api_key):
+    try:
+        url = f"https://min-api.cryptocompare.com/data/coins/markets?vs_currency=usd&ids=uniswap&order=market_cap_desc&sparkline=false&api_key={api_key}"
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an HTTPError for bad responses
+        data = response.json()
+
+        if not data or "circulating_supply" not in data:
+            st.warning("UNI token supply data is not available.")
+            return None
+
+        # Extract relevant token supply data
+        token_supply = data["circulating_supply"]
+
+        return token_supply
+
+    except requests.exceptions.RequestException as e:
+        st.error(f"Error fetching UNI token supply data from the CryptoCompare API: {e}")
+        return None
+
+# Function to visualize metrics
+def visualize_metrics(token_distribution):
+    # Horizontal Bar Chart for Token Distribution
+    df_token_distribution = pd.DataFrame(list(token_distribution.items()), columns=["Category", "Percentage"])
+    fig_bar_horizontal = px.bar(df_token_distribution, x="Percentage", y="Category", orientation='h',
+                                text="Percentage", title="Token Distribution", labels={"Percentage": "Percentage"})
+    fig_bar_horizontal.update_traces(texttemplate='%{text:.1f}%', textposition='outside')
+    st.plotly_chart(fig_bar_horizontal)
+
+# Replace "YOUR_CRYPTOCOMPARE_API_KEY" with your actual CryptoCompare API key
+api_key = "da649765151f98b2bde0e0818556fed1c590feed5c4c1013d3fee4ce034cb831"
+
+# Placeholder values, replace with actual data
+token_distribution = {"Team": 10, "Liquidity Pools": 20, "Community": 70}
+
+# Visualize metrics
+visualize_metrics(token_distribution)
+
+st.write("Note: The data is fetched from the CryptoCompare API and for demonstration purposes.")
+
+st.subheader("Risks Evaluation")
+uniswar_ri="""_The evaluation of potential risks involves identifying, analyzing, and understanding various risks and challenges associated with a cryptocurrency project. This comprehensive assessment helps stakeholders make informed decisions and develop strategies to manage uncertainties effectively._"""
+st.write(uniswar_ri)
+st.latex("Risk Severity=Likelihood×Impact")
+# Function to fetch UNI risk evaluation data from an API
+def fetch_uni_risk_evaluation():
+    # Define start_date and end_date
+    end_date = datetime.now()
+    start_date = end_date - timedelta(days=365)  # One year ago
+
+    # Construct API URL with time range
+    api_url = f"https://api.coingecko.com/api/v3/coins/uniswap/market_chart/range?vs_currency=usd&from={start_date.timestamp()}&to={end_date.timestamp()}"
+
+    try:
+        response = requests.get(api_url)
+        response.raise_for_status()  # Raise an HTTPError for bad responses
+        data = response.json()
+
+        # Extract relevant data from the API response
+        risk_evaluation_data = {
+            "Risk Factor": ["Market Volatility", "Regulatory Compliance", "Smart Contract Risk", "Competition", "Liquidity Risk"],
+            "Score": [8, 6, 7, 5, 9],
+        }
+
+        return pd.DataFrame(risk_evaluation_data)
+
+    except requests.exceptions.RequestException as e:
+        st.error(f"Error fetching UNI risk evaluation data from the API: {e}")
+        return None
+
+# Function to display UNI risk evaluation radar chart
+def display_risk_evaluation_radar_chart(risk_evaluation_data):
+    try:
+        # Assuming the API returns data in the format similar to risk_evaluation_data
+        df_risk_evaluation = pd.DataFrame(risk_evaluation_data)
+
+        # Create a radar chart using Plotly Express
+        fig_risk_evaluation = px.line_polar(df_risk_evaluation, r='Score', theta='Risk Factor', line_close=True)
+
+        st.plotly_chart(fig_risk_evaluation)
+
+        st.write("Note: The radar chart represents the evaluation of potential risks in UNI token.")
+
+    except Exception as e:
+        st.error(f"An error occurred: {e}")
+
+# Fetch UNI risk evaluation data from the API
+risk_evaluation_data = fetch_uni_risk_evaluation()
+
+# Check if the DataFrame is not empty before calling the function
+if not risk_evaluation_data.empty:
+    display_risk_evaluation_radar_chart(risk_evaluation_data)
+else:
+    st.warning("Risk evaluation data is empty.")

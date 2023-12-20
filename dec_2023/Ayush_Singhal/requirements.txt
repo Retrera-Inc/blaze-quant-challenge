@@ -1,0 +1,12 @@
+ipywidgets==7.7.1
+numpy==1.24.2
+tqdm==4.64.0
+streamlit
+pandas
+seaborn
+matplotlib
+wordcloud
+nltk
+textblob
+plotly
+requests

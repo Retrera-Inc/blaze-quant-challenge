@@ -1,3 +1,8 @@
+"""
+Copy this file and add your business logic for the predictions. Add your file in
+the format: predictions_<team_lead_name>.py
+"""
+
 from instructions import ETHPriceRanges
 
 

@@ -8,6 +8,10 @@ Note: the price ranges might be updated closer to Jan 2nd.
 Please copy the example to add your predictions.
 We will call the predictions function on Jan 2nd 12:00 AM PST. After that, the predictions
 will not be altered. 
+
+We will take the closing price on the day as the correct price. The source for the closing
+price will be https://coinmarketcap.com/currencies/ethereum/. Coin market cap provides
+prices at 5 min intervals. We will take the price at 11:55 pm PST as the closing price.
 """
 from enum import Enum
 

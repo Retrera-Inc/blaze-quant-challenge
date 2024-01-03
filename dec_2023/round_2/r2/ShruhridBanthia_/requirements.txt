@@ -1,0 +1,8 @@
+numpy==1.25.2
+pandas==2.1.4
+yfinance==0.2.33
+statsmodels==0.14.1
+prophet==1.1.5
+tensorflow==2.15.0
+h5py==3.10.0
+Cython==3.0.7

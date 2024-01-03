@@ -132,6 +132,8 @@ def predictions():
     
         prices.append(y_pred_single_original[index, 2])
 
+    # prices = [2369.83, 2360.64, 2366.76, 2360.17, 2356.28, 2362.1, 2374.02] # Use this prices if the training time is long
+    
     return_val = []
 
     for val in prices : 

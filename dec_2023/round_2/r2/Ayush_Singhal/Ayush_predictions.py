@@ -1,3 +1,5 @@
+# Training results can be seen on https://wandb.ai/ayushsinghal659/lightning_logs/runs/mjyo1mef?workspace=user-ayushsinghal659
+
 # predictions_<team_lead_name>.py
 from instructions import ETHPriceRanges
 

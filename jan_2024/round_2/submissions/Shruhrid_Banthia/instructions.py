@@ -1,20 +1,20 @@
-
-from enum import Enum
 """
-For round 2, you have to predict ETH price in USD between Feb 4th and Feb 10th 2024 (inclusive).
+For round 2, you have to predict ETH price in USD between Jan 2nd and Jan 8th 2024 (inclusive).
 Each team will have to make 7 predictions; one for each day. The prediction has to be
 within a range. Each range is inclusive of the lower bound and exclusive of the higher bound.
 E.g. pr_2000_2025 is [2000, 2025).
 
-Note: the price ranges might be updated closer to Feb 4th.
+Note: the price ranges might be updated closer to Jan 2nd.
 Please copy the example to add your predictions.
-We will call the predictions function on Feb 4th 12:00 AM PST. After that, the predictions
+We will call the predictions function on Jan 2nd 12:00 AM PST. After that, the predictions
 will not be altered. 
 
 We will take the closing price on the day as the correct price. The source for the closing
 price will be https://coinmarketcap.com/currencies/ethereum/. Coin market cap provides
 prices at 5 min intervals. We will take the price at 11:55 pm PST as the closing price.
 """
+from enum import Enum
+
 
 class ETHPriceRanges(Enum):
     pr_2000_2025 = 1
@@ -41,11 +41,3 @@ class ETHPriceRanges(Enum):
     pr_2525_2550 = 22
     pr_2550_2575 = 23
     pr_2575_2600 = 24
-
-class PredictionInfo:
-    def __init__(self, eth_range, lower_bound, upper_bound, mean):
-        self.eth_range = eth_range
-        self.lower_bound = lower_bound
-        self.upper_bound = upper_bound
-        self.mean = mean
-

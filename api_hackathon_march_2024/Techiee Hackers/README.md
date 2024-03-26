@@ -1,6 +1,6 @@
 ![](static/Crypto-Companion-Logo.png)
 
-###Team Name : 
+### Team Name : 
 **Techiee Hackers**
 
 1) Sanjai L 
@@ -80,7 +80,7 @@ As of now we have two tools to explore
 purely from organic growth where we pitched our product to lot of web3 communites
 and got good feedbacks trying to improve based on their suggestions
 
-![](static/img_5.png)
+![](static/img_8.png)
 
 ### Future Enhacnement 
 Trying improve our user experience adding more features

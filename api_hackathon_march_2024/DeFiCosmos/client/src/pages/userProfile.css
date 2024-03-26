@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+.user-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile {
+  height: 200vh;
+  background: radial-gradient(circle, #050213, #0d0422, #020205, #080819);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+   /* Fallback color */
+   
+}
+
+.profile-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-header-top {
+  display: flex;
+  align-items: center;
+}
+ .username{
+  font-size: 60px;
+  color: #812B00;
+}
+.profile-image {
+  margin: 5px;
+  background-color: azure;
+  width: 150px; /* Adjust as needed */
+  height: 150px; /* Adjust as needed */
+  border-radius: 50%; /* Make it circular */
+}
+
+.followers,
+.following {
+  margin-left: 20px; /* Adjust as needed */
+  margin-top: 10px; /* Add margin-top to push them to the next line */
+}
+
+
+.wallet-social {
+  margin-top: 20px; /* Adjust as needed */
+}
+
+.profile-details {
+  width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+
+.hold-time,
+.wallet-score,
+.wallet-traits {
+  /* Add styling as needed */
+  margin-top: 20px;
+ 
+}
+
+
+.profile-header-top {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+}
+
+.followers,
+.following {
+  margin-top: 10px;
+}
+
+.username {
+  margin-left: -500px;
+  font-size: 60px;
+  color: #EEFCFF;
+}
+
+.followers,
+.following {
+  margin-top: 10px;
+  width:600px;
+  padding: 10px 20px;
+  background-color: #fafa6e;
+  color: #000000;
+  opacity: 0.7;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.wallet-score{
+  margin-left: -470px;
+}
+.wallet-traits{
+  padding-top: 0;
+  margin-top: -40px;
+  margin-left: -250px;
+  width: 450px;
+}
+.wallet-traits h2{
+  margin-bottom: -70px;
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-style: italic;
+
+}
+.portfolio-container{
+  margin-top: -200px;
+}
+.star, .asteroid {
+  position: absolute;
+  width: 2px; /* Adjust size as needed */
+  height: 2px; /* Adjust size as needed */
+  background-color: #ffffff; /* Adjust color as needed */
+  border-radius: 50%; /* Ensures stars are circular */
+  z-index: 0;
+}
+
+/* Style for the container */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200vh;
+  background-color: #000000; /* Background color of the space */
+}

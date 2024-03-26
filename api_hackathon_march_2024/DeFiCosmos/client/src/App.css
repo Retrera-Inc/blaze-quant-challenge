@@ -1,0 +1,110 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.wallet {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+button {
+  margin-top: 0.5em;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle, #050213, #0d0422, #020205, #080819);
+  min-height: 100vh;
+ 
+} */
+
+main.css
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  .app-container {
+    background: radial-gradient(circle, #050213, #0d0422, #020205, #080819);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .star, .asteroid {
+    position: absolute;
+    width: 2px; /* Adjust size as needed */
+    height: 2px; /* Adjust size as needed */
+    background-color: #ffffff; /* Adjust color as needed */
+    border-radius: 50%; /* Ensures stars are circular */
+    z-index: 0;
+  }
+  
+  /* Style for the container */
+  .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000000; /* Background color of the space */
+  }
+
+  .rocket-container {
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+  }
+  
+  .rocket {
+    width: 300px; /* Adjust the size of the rocket as needed */
+    height: auto;
+  }
+  

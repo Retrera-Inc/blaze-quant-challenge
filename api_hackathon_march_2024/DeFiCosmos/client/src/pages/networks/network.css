@@ -1,0 +1,83 @@
+.network-body{
+    position: relative;
+    background: #000;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.network-body div{
+    z-index: 1;
+}
+.arbitrum-sun{
+    background: linear-gradient(to right,#6C192E, #CE6C46);
+    height: 70vw;
+    width: 70vw;
+    border-radius: 100%;
+    position: absolute;
+}
+.ethereum-sun{
+    background: linear-gradient(to right, #E6155E ,#F27E18);
+    height: 70vw;
+    width: 70vw;
+    border-radius: 100%;
+    position: absolute;
+}
+.base-sun{
+    background: linear-gradient(to right, #F9C58D ,#F492F0);
+    height: 70vw;
+    width: 70vw;
+    border-radius: 100%;
+    position: absolute;
+}
+.bsc-sun{
+    background: linear-gradient(to right, #ff930f ,#fff95b);
+    height: 70vw;
+    width: 70vw;
+    border-radius: 100%;
+    position: absolute;
+}
+.optimism-sun{
+    background: linear-gradient(to right, #f5e6ad ,#f5e6ad);
+    height: 70vw;
+    width: 70vw;
+    border-radius: 100%;
+    position: absolute;
+}
+.polygon-sun{
+    background: linear-gradient(to right, #ff5282 ,#f28367);
+    height: 70vw;
+    width: 70vw;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.network-body {
+    position: relative;
+    height: 100vh; /* Ensure full viewport height */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.arbitrum-sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Add your other styling for the sun */
+}
+
+.navigate-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+    background-color: #427ae2;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    /* Add your other styling for the button */
+}
+

@@ -1,0 +1,31 @@
+/* Define keyframes for the kaleidoscope effect */
+@keyframes kaleidoscope {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+  
+  /* Apply the kaleidoscope effect to the message bubbles */
+  .message-bubble {
+    background: radial-gradient(circle at center, #000000 0%, #04081b 100%);
+    animation: kaleidoscope 20s infinite linear;
+    color: white; /* Set text color to white for better visibility */
+  }
+  
+  /* Additional styling for the message bubbles */
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    max-height: 80vh; /* Adjust as needed */
+  }
+  
+  /* Hide scrollbar */
+  .message-container::-webkit-scrollbar {
+    display: none;
+  }
+  

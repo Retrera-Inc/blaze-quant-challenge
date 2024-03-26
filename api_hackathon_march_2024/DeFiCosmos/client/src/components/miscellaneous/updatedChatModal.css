@@ -1,0 +1,23 @@
+/* Define keyframes for the kaleidoscope effect */
+@keyframes kaleidoscope {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+  
+  /* Apply the kaleidoscope effect to the modal */
+  .modal-content {
+    background: radial-gradient(circle at center, #000000 0%, #04081b 100%);
+    animation: kaleidoscope 20s infinite linear;
+  }
+  
+  /* Additional styling for the modal */
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    color: #ffffff; /* Example styling for text color */
+  }
+  

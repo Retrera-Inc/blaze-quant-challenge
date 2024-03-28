@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+
+.crypto-market-container {
+    padding-top: 100px;
+  height: 100vh;
+    background-color: black;
+    
+   
+  }
+  .crypto-market-container h1{
+    color: rgb(2, 255, 238);
+    font-size: x-large;
+    font-family: "Orbitron";
+    font-weight:bolder;
+  }
+
+  .crypto-market-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px; /* Adjust the width to control the size of the planet */
+    height: 100%; /* Make the height cover the entire container */
+    background: radial-gradient(circle at top left, transparent 60%, rgba(199, 52, 3, 0.4) 70%);
+   
+    border-radius: 0% 100% 100% 0 / 50%; /* Adjust border-radius to create a semi-circle */
+  }
+  .graphs-buttons{
+    padding-top: 100px;
+    padding-left: 300px;
+    
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+
+  
+  .button-container {
+    margin-left: 50px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .gradient-button {
+    background: linear-gradient(to right, #ff8a00, #e52e71); /* Example gradient colors */
+    border: none;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .plotly-chart {
+    color: white; /* Bright color for text */
+  }
+  

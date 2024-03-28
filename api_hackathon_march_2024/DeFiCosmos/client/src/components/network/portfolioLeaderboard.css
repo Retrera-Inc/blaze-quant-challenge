@@ -1,0 +1,57 @@
+.leaderboard-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px;
+  }
+  
+  .leaderboard-title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  
+  .portfolio-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .portfolio-item {
+    margin-bottom: 10px;
+  }
+  
+  .portfolio-toggle {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .portfolio-toggle:hover {
+    background-color: #0056b3;
+  }
+  
+  .portfolio-details {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 5px;
+  }
+  
+  .toggle-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+  
+  .toggle-button:hover {
+    background-color: #218838;
+  }
+  

@@ -1,0 +1,86 @@
+/* Define keyframes for the kaleidoscope effect */
+@keyframes kaleidoscope {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+  
+  /* Apply the kaleidoscope effect to the entire drawer content */
+  .drawer-content,
+  .drawer-body,
+  .drawer-header {
+    background: radial-gradient(circle at center, #000000 0%, #04081b 100%);
+    animation: kaleidoscope 20s infinite linear;
+    width: 100%;
+    height: 100%;
+    position: relative; /* Ensure pseudo-elements are positioned relative to the drawer content */
+  }
+  
+  /* Create random stars */
+  .drawer-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, #ffffff 1%, transparent 1.5%);
+    background-size: 3px 3px; /* Size of the stars */
+    animation: stars 15s infinite;
+  }
+  
+  @keyframes stars {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(100%);
+    }
+  }
+  
+  /* Styling for DrawerHeader */
+  .drawer-header {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Styling for DrawerBody */
+  .drawer-body {
+    padding: 20px;
+  }
+  
+  /* Styling for DrawerButton */
+  .drawer-button {
+    background: #ff3d61;
+    color: #ffffff;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .drawer-button:hover {
+    background-color: #1e60ff;
+  }
+  
+  /* Styling for Input */
+  .drawer-input {
+    background-color: #ffffff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  /* Styling for UserListItem */
+  
+  /* Styling for Spinner */
+  .drawer-spinner {
+    color: #ffffff;
+  }
+  .searchButtonText{
+    color: white;
+  }

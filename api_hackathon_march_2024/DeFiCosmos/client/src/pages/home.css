@@ -1,0 +1,22 @@
+.home{
+    background: #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.map{
+    position: absolute;
+}
+.home button{
+    position: absolute;
+}
+.open-portfolio{
+    position: absolute;
+}
+.open-chat{
+    position: absolute;
+}

@@ -1,0 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.average-hold-time {
+  margin-top: 50px;
+  margin-right: 0;
+  margin-left: 20px;
+  padding: 20px;
+  
+    border-radius: 10px;
+  height: 100px;
+  width: 400px;
+  background: rgba(137, 113, 208, 0.1); /* Background color */
+ /* Padding for spacing */
+  font-family: Montserrat, sans-serif; /* Font family */
+  font-size: 16px; /* Font size */
+color: white;
+  font-family: "Montserrat";
+    font-weight: 700;
+    font-style: italic;
+}

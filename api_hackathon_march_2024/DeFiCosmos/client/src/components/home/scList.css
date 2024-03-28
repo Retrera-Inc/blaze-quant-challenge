@@ -1,0 +1,16 @@
+.smartListBox{
+    background: rgba(137, 113, 208, 0.1);
+    width: 380px;
+    padding-top: 0;
+    margin-top: 0;
+   margin-left: 20px;
+
+    border-radius: 10px;
+}
+.smartListBox h2{
+    margin-top: 0px;
+}
+.list-contracts{
+    list-style-type: none;
+    color: white;
+}

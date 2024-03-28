@@ -1,0 +1,79 @@
+
+/* home.css */
+
+/* Import Orbitron font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+/* Apply radial gradient to the container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  
+}
+
+
+
+input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid #f1f1f1;
+  margin-bottom: 10px;
+  width: 250px;
+  height: 25px;
+}
+
+h1 {
+  color: #c2c2d6;
+  opacity: 0.5;
+  font-family: 'Google Sans', arial, sans-serif;
+  padding-bottom: 0;
+  padding-top: 16px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.3333;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.forgotAcc {
+  color: #c2c2d6;
+  opacity: 0.8;
+}
+
+.createAcc {
+  color: #c2c2d6;
+  opacity: 0.8;
+}
+
+.login-container button {
+  background: grey;
+  color: white;
+  float: right;
+  border: 0px;
+  border-radius: 10px; /* Make buttons square rounded */
+  font-size: 14px;
+  box-shadow: 0 5px 7px 1px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  font-family: inherit;
+  transition: background 0.3s; /* Add transition for color change */
+}
+
+.login-container  button:hover,
+.createAcc:hover,
+.forgotAcc:hover {
+  opacity: 1.0;
+  background: pink; /* Change background color on hover */
+}
+
+.login-container button:active,
+.createAcc:active,
+.forgotAcc:active {
+  background: yellow; /* Change background color on click */
+}
+input{
+  color: white;
+}

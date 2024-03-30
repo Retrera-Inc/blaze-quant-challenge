@@ -26,7 +26,7 @@ def calculate_sma(df, window=20):
     return sma
 
 def get_data(crypto="ETH", prediction_days = 50):
-    end_date="2024-03-15"
+    end_date="2024-03-30"
     data = yf.download(f"{crypto}-USD", start="2018-01-01", end=end_date)
     data['rsi'] = calculate_rsi(data)
     data['sma50'] = calculate_sma(data, window=50)
@@ -86,7 +86,7 @@ def get_price_range_ARB(price):
 
 def get_model(token="ETH"):
     start_date = "2018-01-01"
-    end_date = "2024-03-15"
+    end_date = "2024-03-30"
     prediction_days = 50
     future_days = 7
     x_train, y_train, scaler,scaler_y,data = get_data(token)

@@ -125,7 +125,7 @@ def find_price_range_ARB(array):
     jump = 0.05
     arr = []
     for price in array:
-      start, end = 1.8, 1.85
+      start, end = 1.35, 2.20
       for enum_value in ARBPriceRanges:
           if start <= price < end:
               arr.append(enum_value)
@@ -451,3 +451,7 @@ assert all([isinstance(val, ARBPriceRanges) for val in preds_ARB])
 preds_LINK = predictions_LINK()
 assert len(preds_LINK) == 7
 assert all([isinstance(val, LINKPriceRanges) for val in preds_LINK])
+
+print (preds_ETH)
+print (preds_ARB)
+print (preds_LINK)

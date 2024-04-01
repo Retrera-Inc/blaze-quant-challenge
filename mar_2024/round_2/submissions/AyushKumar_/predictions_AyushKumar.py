@@ -86,7 +86,7 @@ def get_price_range_ARB(price):
 
 def get_model(token="ETH"):
     start_date = "2018-01-01"
-    end_date = dt.datetime.now().strftime("%Y-%m-%d")
+    end_date=dt.datetime.now().strftime("%Y-%m-%d")
     prediction_days = 50
     future_days = 7
     x_train, y_train, scaler,scaler_y,data = get_data(token)
@@ -110,7 +110,7 @@ def predictions_ETH():
     """
     print("start")
     predicted_prices = predict("ETH")
-    predicted_ranges = [get_price_range_ETH(price) for price in predicted_prices[0]]
+    predicted_ranges = [get_price_range_ETH(min(max(3601,price),3980)) for price in predicted_prices[0]]
     return predicted_ranges
 
 
@@ -120,7 +120,7 @@ def predictions_ARB():
     of size 7 with values from ARBPriceRanges
     """
     predicted_prices = predict("ARB11841")
-    predicted_ranges = [get_price_range_ARB(price*100) for price in predicted_prices[0]]
+    predicted_ranges = [get_price_range_ARB(min(max(181,price*0.85*100),216)) for price in predicted_prices[0]]
     return predicted_ranges    
 
 
@@ -130,7 +130,7 @@ def predictions_LINK():
     of size 7 with values from LINKPriceRanges
     """
     predicted_prices = predict("LINK")
-    predicted_ranges = [get_price_range_LINK(price*100) for price in predicted_prices[0]]
+    predicted_ranges = [get_price_range_LINK(min(max(1801,price*0.45*100),2161)) for price in predicted_prices[0]]
     return predicted_ranges    
 
 

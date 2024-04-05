@@ -1,0 +1,32 @@
+/* Leaderboard.css */
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 900px;
+    padding: 10px;
+   
+  }
+  
+  .graph-container {
+    margin-left: 350px;
+  margin-top: 0;
+    width: 900px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .graphs{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .graph-title {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .values{
+    color: white;
+  }

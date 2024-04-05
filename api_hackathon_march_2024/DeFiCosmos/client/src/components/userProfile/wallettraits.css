@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+.wallet-tags ul,
+.portfolio-values ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.wallet-tags li,
+.portfolio-values li {
+  margin-left: 4px;
+  margin-bottom: 8px;
+  color: aliceblue;
+}
+
+.wallet-tags strong {
+  margin-right: 5px;
+}
+.wallet-details{
+  padding-top: 0;
+    background: rgba(137, 113, 208, 0.1);
+    
+}
+.wallet-details h2{
+  margin-top: -40px;
+font-family: "Montserrat";
+font-weight: 400;
+color: #FF69B4;
+}
+.wallet-tags, .portfolio-values h3{
+  color: #FFD700;
+}

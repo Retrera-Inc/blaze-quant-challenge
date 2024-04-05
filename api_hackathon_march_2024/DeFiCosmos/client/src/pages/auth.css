@@ -1,0 +1,18 @@
+/* home.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+/* Apply radial gradient to the container */
+
+
+/* Apply shades of pink and yellow to text */
+.text-pink {
+  color: #FF69B4; /* Pink */
+  font-family: 'Orbitron';
+}
+
+.text-yellow {
+  color: #FFD700; /* Yellow */
+}
+.chakra-tabs__tab {
+  border-radius: 8px; /* Adjust the border-radius to your liking */
+}

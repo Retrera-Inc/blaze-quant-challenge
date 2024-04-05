@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+ h1{
+    font-family: "Orbitron";
+    color: #FF69B4;
+ }
+
+ h2{
+    color: white;
+    padding-top: 100px;
+ }
+ .wallet{
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(circle, #050213, #0d0422, #020205, #080819);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }

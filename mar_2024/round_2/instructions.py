@@ -120,7 +120,7 @@ class ARBPriceRanges(Enum):
 
 class LINKPriceRanges(Enum):
     pr_13.00_13.25 = 1
-    pr_1825_13.50 = 2
+    pr_13.25_13.50 = 2
     pr_13.50_13.75 = 3
     pr_13.75_14.00 = 4
     pr_14.00_14.25 = 5

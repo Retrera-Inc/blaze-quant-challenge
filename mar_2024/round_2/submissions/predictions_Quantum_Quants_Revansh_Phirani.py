@@ -270,40 +270,67 @@ class ETHPriceRanges(Enum):
     pr_3950_3975 = 79
     pr_3975_4000 = 80
 
-
 class ARBPriceRanges(Enum):
-    pr_1_1_1_2 = 1
-    pr_1_2_1_3 = 2
-    pr_1_3_1_4 = 3
-    pr_1_4_1_5 = 4
-    pr_1_5_1_6 = 5
-    pr_1_6_1_7 = 6
-    pr_1_7_1_8 = 7
-    pr_1_8_1_9 = 8
-    pr_1_9_2_0 = 9
-    pr_2_0_2_1 = 10
-    pr_2_1_2_2 = 11
-    pr_2_2_2_3 = 12
-    pr_2_3_2_4 = 13
-    pr_2_4_2_5 = 14
-    pr_2_5_2_6 = 15
-    pr_2_6_2_7 = 16
-    pr_2_7_2_8 = 17
-    pr_2_8_2_9 = 18
-    pr_2_9_3_0 = 19
+    pr_100_105 = 1
+    pr_105_110 = 2
+    pr_110_115 = 3
+    pr_115_120 = 4
+    pr_120_125 = 5
+    pr_125_130 = 6
+    pr_130_135 = 7
+    pr_135_140 = 8
+    pr_140_145 = 9
+    pr_145_150 = 10
+    pr_150_155 = 11
+    pr_155_160 = 12
+    pr_160_165 = 13
+    pr_165_170 = 14
+    pr_170_175 = 15
+    pr_175_180 = 16
+    pr_180_185 = 17
+    pr_185_190 = 18
+    pr_190_195 = 19
+    pr_195_200 = 20
+    pr_200_205 = 21
+    pr_205_210 = 22
+    pr_210_215 = 23
+    pr_215_220 = 24
+
 
 class LINKPriceRanges(Enum):
-    pr_4_6 = 1
-    pr_6_8 = 2
-    pr_8_10 = 3
-    pr_10_12 = 4
-    pr_12_14 = 5
-    pr_14_16 = 6
-    pr_16_18 = 7
-    pr_18_20 = 8
-    pr_20_22 = 9
-    pr_22_24 = 10
-    pr_24_26 = 11
+    pr_1000_1025 = 1
+    pr_1025_1050 = 2
+    pr_1050_1075 = 3
+    pr_1075_1100 = 4
+    pr_1100_1125 = 5
+    pr_1125_1150 = 6
+    pr_1150_1175 = 7
+    pr_1175_1200 = 8
+    pr_1200_1225 = 9
+    pr_1225_1250 = 10
+    pr_1250_1275 = 11
+    pr_1275_1300 = 12
+    pr_1300_1325 = 13
+    pr_1325_1350 = 14
+    pr_1350_1375 = 15
+    pr_1375_1400 = 16
+    pr_1400_1425 = 17
+    pr_1425_1450 = 18
+    pr_1450_1475 = 19
+    pr_1475_1500 = 20
+    pr_1500_1525 = 21
+    pr_1525_1550 = 22
+    pr_1550_1575 = 23
+    pr_1575_1600 = 24
+    pr_1600_1625 = 25
+    pr_1625_1650 = 26
+    pr_1650_1675 = 27
+    pr_1675_1700 = 28
+    pr_1700_1725 = 29
+    pr_1725_1750 = 30
+    pr_1750_1775 = 31
+    pr_1775_1800 = 32
+    pr_1800_1825 = 33
 
 import yfinance as yf
 df = yf.download("LINK-USD", start="2023-04-01", end="2024-04-16")
@@ -536,56 +563,54 @@ def predictions_ARB():
     of size 7 with values from ARBPriceRanges
     """
     def price_to_range_arb(price):
-      if 0.5 <= price < 0.6:
-          return ARBPriceRanges.pr_0_5_0_6
-      elif 0.6 <= price < 0.7:
-          return ARBPriceRanges.pr_0_6_0_7
-      elif 0.7 <= price < 0.8:
-          return ARBPriceRanges.pr_0_7_0_8
-      elif 0.8 <= price < 0.9:
-          return ARBPriceRanges.pr_0_8_0_9
-      elif 0.9 <= price < 1.0:
-          return ARBPriceRanges.pr_0_9_1_0
-      elif 1.0 <= price < 1.1:
-          return ARBPriceRanges.pr_1_0_1_1
-      elif 1.1 <= price < 1.2:
-          return ARBPriceRanges.pr_1_1_1_2
-      elif 1.2 <= price < 1.3:
-          return ARBPriceRanges.pr_1_2_1_3
-      elif 1.3 <= price < 1.4:
-          return ARBPriceRanges.pr_1_3_1_4
-      elif 1.4 <= price < 1.5:
-          return ARBPriceRanges.pr_1_4_1_5
-      elif 1.5 <= price < 1.6:
-          return ARBPriceRanges.pr_1_5_1_6
-      elif 1.6 <= price < 1.7:
-          return ARBPriceRanges.pr_1_6_1_7
-      elif 1.7 <= price < 1.8:
-          return ARBPriceRanges.pr_1_7_1_8
-      elif 1.8 <= price < 1.9:
-          return ARBPriceRanges.pr_1_8_1_9
-      elif 1.9 <= price < 2.0:
-          return ARBPriceRanges.pr_1_9_2_0
-      elif 2.0 <= price < 2.1:
-          return ARBPriceRanges.pr_2_0_2_1
-      elif 2.1 <= price < 2.2:
-          return ARBPriceRanges.pr_2_1_2_2
-      elif 2.2 <= price < 2.3:
-          return ARBPriceRanges.pr_2_2_2_3
-      elif 2.3 <= price < 2.4:
-          return ARBPriceRanges.pr_2_3_2_4
-      elif 2.4 <= price < 2.5:
-          return ARBPriceRanges.pr_2_4_2_5
-      elif 2.5 <= price < 2.6:
-          return ARBPriceRanges.pr_2_5_2_6
-      elif 2.6 <= price < 2.7:
-          return ARBPriceRanges.pr_2_6_2_7
-      elif 2.7 <= price < 2.8:
-          return ARBPriceRanges.pr_2_7_2_8
-      elif 2.8 <= price < 2.9:
-          return ARBPriceRanges.pr_2_8_2_9
-      elif 2.9 <= price < 3.0:
-          return ARBPriceRanges.pr_2_9_3_0
+      if 1.00 <= price < 1.05:
+          return ARBPriceRanges.pr_100_105
+      elif 1.05 <= price < 1.10:
+          return ARBPriceRanges.pr_105_110
+      elif 1.10 <= price < 1.15:
+          return ARBPriceRanges.pr_110_115
+      elif 1.15 <= price < 1.20:
+          return ARBPriceRanges.pr_115_120
+      elif 1.20 <= price < 1.25:
+          return ARBPriceRanges.pr_120_125
+      elif 1.25 <= price < 1.30:
+          return ARBPriceRanges.pr_125_130
+      elif 1.30 <= price < 1.35:
+          return ARBPriceRanges.pr_130_135
+      elif 1.35 <= price < 1.40:
+          return ARBPriceRanges.pr_135_140
+      elif 1.40 <= price < 1.45:
+          return ARBPriceRanges.pr_140_145
+      elif 1.45 <= price < 1.50:
+          return ARBPriceRanges.pr_145_150
+      elif 1.50 <= price < 1.55:
+          return ARBPriceRanges.pr_150_155
+      elif 1.55 <= price < 1.60:
+          return ARBPriceRanges.pr_155_160
+      elif 1.60 <= price < 1.65:
+          return ARBPriceRanges.pr_160_165
+      elif 1.65 <= price < 1.70:
+          return ARBPriceRanges.pr_165_170
+      elif 1.70 <= price < 1.75:
+          return ARBPriceRanges.pr_170_175
+      elif 1.75 <= price < 1.80:
+          return ARBPriceRanges.pr_175_180
+      elif 1.80 <= price < 1.85:
+          return ARBPriceRanges.pr_180_185
+      elif 1.85 <= price < 1.90:
+          return ARBPriceRanges.pr_185_190
+      elif 1.90 <= price < 1.95:
+          return ARBPriceRanges.pr_190_195
+      elif 1.95 <= price < 2.00:
+          return ARBPriceRanges.pr_195_200
+      elif 2.00 <= price < 2.05:
+          return ARBPriceRanges.pr_200_205
+      elif 2.05 <= price < 2.10:
+          return ARBPriceRanges.pr_205_210
+      elif 2.10 <= price < 2.15:
+          return ARBPriceRanges.pr_210_215
+      elif 2.15 <= price < 2.20:
+          return ARBPriceRanges.pr_215_220
       else:
           return None
   # Return None if the price does not fall into any range
@@ -608,8 +633,8 @@ def predictions_ARB():
       history.append(yhat)
       print(price_to_range_arb(yhat))
       predicted_arb.append(price_to_range_arb(yhat))
-    return predicted_arb
       # print('%d April expected=%f' % (t+15, yhat))
+    return predicted_arb
     # return [
     #     ARBPriceRanges.pr_180_185,
     #     ARBPriceRanges.pr_180_185,
@@ -627,28 +652,72 @@ def predictions_LINK():
     of size 7 with values from LINKPriceRanges
     """
     def price_to_range_link(price):
-      if 4 <= price < 6:
-          return LINKPriceRanges.pr_4_6
-      elif 6 <= price < 8:
-          return LINKPriceRanges.pr_6_8
-      elif 8 <= price < 10:
-          return LINKPriceRanges.pr_8_10
-      elif 10 <= price < 12:
-          return LINKPriceRanges.pr_10_12
-      elif 12 <= price < 14:
-          return LINKPriceRanges.pr_12_14
-      elif 14 <= price < 16:
-          return LINKPriceRanges.pr_14_16
-      elif 16 <= price < 18:
-          return LINKPriceRanges.pr_16_18
-      elif 18 <= price < 20:
-          return LINKPriceRanges.pr_18_20
-      elif 20 <= price < 22:
-          return LINKPriceRanges.pr_20_22
-      elif 22 <= price < 24:
-          return LINKPriceRanges.pr_22_24
-      elif 24 <= price < 26:
-          return LINKPriceRanges.pr_24_26
+      if 10.00 <= price < 10.25:
+          return LINKPriceRanges.pr_1000_1025
+      elif 10.25 <= price < 10.50:
+          return LINKPriceRanges.pr_1025_1050
+      elif 10.50 <= price < 10.75:
+          return LINKPriceRanges.pr_1050_1075
+      elif 10.75 <= price < 11.00:
+          return LINKPriceRanges.pr_1075_1100
+      elif 11.00 <= price < 11.25:
+          return LINKPriceRanges.pr_1100_1125
+      elif 11.25 <= price < 11.50:
+          return LINKPriceRanges.pr_1125_1150
+      elif 11.50 <= price < 11.75:
+          return LINKPriceRanges.pr_1150_1175
+      elif 11.75 <= price < 12.00:
+          return LINKPriceRanges.pr_1175_1200
+      elif 12.00 <= price < 12.25:
+          return LINKPriceRanges.pr_1200_1225
+      elif 12.25 <= price < 12.50:
+          return LINKPriceRanges.pr_1225_1250
+      elif 12.50 <= price < 12.75:
+          return LINKPriceRanges.pr_1250_1275
+      elif 12.75 <= price < 13.00:
+          return LINKPriceRanges.pr_1275_1300
+      elif 13.00 <= price < 13.25:
+          return LINKPriceRanges.pr_1300_1325
+      elif 13.25 <= price < 13.50:
+          return LINKPriceRanges.pr_1325_1350
+      elif 13.50 <= price < 13.75:
+          return LINKPriceRanges.pr_1350_1375
+      elif 13.75 <= price < 14.00:
+          return LINKPriceRanges.pr_1375_1400
+      elif 14.00 <= price < 14.25:
+          return LINKPriceRanges.pr_1400_1425
+      elif 14.25 <= price < 14.50:
+          return LINKPriceRanges.pr_1425_1450
+      elif 14.50 <= price < 14.75:
+          return LINKPriceRanges.pr_1450_1475
+      elif 14.75 <= price < 15.00:
+          return LINKPriceRanges.pr_1475_1500
+      elif 15.00 <= price < 15.25:
+          return LINKPriceRanges.pr_1500_1525
+      elif 15.25 <= price < 15.50:
+          return LINKPriceRanges.pr_1525_1550
+      elif 15.50 <= price < 15.75:
+          return LINKPriceRanges.pr_1550_1575
+      elif 15.75 <= price < 16.00:
+          return LINKPriceRanges.pr_1575_1600
+      elif 16.00 <= price < 16.25:
+          return LINKPriceRanges.pr_1600_1625
+      elif 16.25 <= price < 16.50:
+          return LINKPriceRanges.pr_1625_1650
+      elif 16.50 <= price < 16.75:
+          return LINKPriceRanges.pr_1650_1675
+      elif 16.75 <= price < 17.00:
+          return LINKPriceRanges.pr_1675_1700
+      elif 17.00 <= price < 17.25:
+          return LINKPriceRanges.pr_1700_1725
+      elif 17.25 <= price < 17.50:
+          return LINKPriceRanges.pr_1725_1750
+      elif 17.50 <= price < 17.75:
+          return LINKPriceRanges.pr_1750_1775
+      elif 17.75 <= price < 18.00:
+          return LINKPriceRanges.pr_1775_1800
+      elif 18.00 <= price < 18.25:
+          return LINKPriceRanges.pr_1800_1825
       else:
           return None # Return None if the price does not fall into any range
 
@@ -671,8 +740,8 @@ def predictions_LINK():
       price_outcome=price_to_range_link(yhat)
       print(price_outcome)
       predicted_link.append(price_outcome)
-    return predicted_link
       # print('%d April expected=%f' % (t+15, yhat))
+    return predicted_link
     # return [
     #     LINKPriceRanges.pr_1875_1900,
     #     LINKPriceRanges.pr_1875_1900,

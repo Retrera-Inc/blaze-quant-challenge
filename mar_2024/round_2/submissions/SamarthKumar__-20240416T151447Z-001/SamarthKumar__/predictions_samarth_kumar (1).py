@@ -336,7 +336,7 @@ table_fig.show()
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-linReg_prediction_Chainlink = [14.67, 14.40, 14.55, 15.15, 16.70, 17.31, 18.00, 18.71, 18.78, 18.48]
+linReg_prediction_Chainlink = [14.69, 14.40, 14.55, 15.15, 16.70, 17.31, 18.00, 18.71, 18.78, 18.48]
 projection_dates = pd.date_range(start='2024-04-17', periods=len(linReg_prediction_Chainlink), freq='D')
 half_range = 0.125  # Half of 0.25 (25 points)
 lower_bounds = [value - half_range for value in linReg_prediction_Chainlink]

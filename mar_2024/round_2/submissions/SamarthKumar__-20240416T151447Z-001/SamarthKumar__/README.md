@@ -30,7 +30,8 @@ Prediction for Ethereum
 
 ![image](https://github.com/Samarthkr2003/Predictions_Samarth/assets/89212505/114cc408-8368-4f59-af3a-1d65c88365b6)
 
-![WhatsApp Image 2024-04-16 at 17 41 03_4b5da4b4](https://github.com/Samarthkr2003/Samarth_Kumar/assets/89212505/4668dfb1-b8f1-42b2-959f-d1657e55acbd)
+![WhatsApp Image 2024-04-18 at 14 16 10_07f73157](https://github.com/broadsword0007D/blaze-quant-challenge/assets/89212505/c126842e-4f7f-4836-bdde-e80d39fe1021)
+
 
 
 
@@ -39,16 +40,15 @@ Prediction for Arbitrum
 
 ![image](https://github.com/Samarthkr2003/Predictions_Samarth/assets/89212505/159b20c4-b521-414c-8ca2-3fb5dcdc2342)
 
-![image](https://github.com/Samarthkr2003/Samarth_Kumar/assets/89212505/4403fffb-782f-44f5-b4ed-de0dd28bd024)
-
+![WhatsApp Image 2024-04-18 at 14 14 15_59a8b93d](https://github.com/broadsword0007D/blaze-quant-challenge/assets/89212505/aa771eb5-7869-4225-95b3-6615f839010a)
 
 
 
 Prediction for Chainlink
 
 ![image](https://github.com/Samarthkr2003/Predictions_Samarth/assets/89212505/8937403a-cc09-41cc-86b9-508c4b9f7250)
+![WhatsApp Image 2024-04-18 at 14 17 02_64e4455c](https://github.com/broadsword0007D/blaze-quant-challenge/assets/89212505/a5869732-c3bf-4325-86a5-ffcf94ac5468)
 
-![image](https://github.com/Samarthkr2003/Predictions_Samarth/assets/89212505/86178578-566a-4787-8d09-22c3f8c1742c)
 
 
 ## Data

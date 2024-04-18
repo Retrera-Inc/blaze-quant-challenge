@@ -253,7 +253,7 @@ import plotly.graph_objects as go
 # Assuming you have x_projection_Ethereum containing close prices,
 # linReg_prediction_Ethereum containing predicted values,
 # and projection_dates containing corresponding dates.
-linReg_prediction_Ethereum = [3129, 3156, 3181, 3189, 3171, 3114, 3105, 3110, 3126, 3152]
+linReg_prediction_Ethereum = [2984, 2962, 3000, 3021, 3965, 3034, 3084, 3004, 3100, 3122]
 
 # Example: Generating sample projection dates
 projection_dates = pd.date_range(start='2024-04-17', periods=len(x_projection_Ethereum), freq='D')
@@ -293,6 +293,7 @@ import numpy as np
 import plotly.graph_objects as go
 
 # Example: Generating sample projection dates
+linReg_prediction_Arbitrum = [1.10, 1.11, 1.15, 1.16, 1.17, 1.18, 1.19, 1.15, 1.12, 1.20]
 projection_dates = pd.date_range(start='2024-04-17', periods=len(linReg_prediction_Arbitrum), freq='D')
 
 # Define the half range
@@ -336,7 +337,7 @@ table_fig.show()
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-linReg_prediction_Chainlink = [14.67, 14.40, 14.55, 15.15, 16.70, 17.31, 18.00, 18.71, 18.78, 18.48]
+linReg_prediction_Chainlink = [13.14, 12.95, 13.20, 13.42 , 14.15 , 13.33, 13.54, 14.10, 14.22, 13.59]
 projection_dates = pd.date_range(start='2024-04-17', periods=len(linReg_prediction_Chainlink), freq='D')
 half_range = 0.125  # Half of 0.25 (25 points)
 lower_bounds = [value - half_range for value in linReg_prediction_Chainlink]

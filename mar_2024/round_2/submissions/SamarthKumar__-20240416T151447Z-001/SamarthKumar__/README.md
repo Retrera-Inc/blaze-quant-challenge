@@ -30,8 +30,8 @@ Prediction for Ethereum
 
 ![image](https://github.com/Samarthkr2003/Predictions_Samarth/assets/89212505/114cc408-8368-4f59-af3a-1d65c88365b6)
 
-![WhatsApp Image 2024-04-16 at 17 41 03_4b5da4b4](https://github.com/Samarthkr2003/Samarth_Kumar/assets/89212505/4668dfb1-b8f1-42b2-959f-d1657e55acbd)
 
+![image](https://github.com/Retrera-Inc/blaze-quant-challenge/assets/89212505/75f5de42-2705-4214-9174-195341014a7a)
 
 
 
@@ -39,7 +39,7 @@ Prediction for Arbitrum
 
 ![image](https://github.com/Samarthkr2003/Predictions_Samarth/assets/89212505/159b20c4-b521-414c-8ca2-3fb5dcdc2342)
 
-![image](https://github.com/Samarthkr2003/Samarth_Kumar/assets/89212505/4403fffb-782f-44f5-b4ed-de0dd28bd024)
+![image](https://github.com/Retrera-Inc/blaze-quant-challenge/assets/89212505/8a1f561f-b4bf-4fc2-8fcd-6700e51d22f6)
 
 
 
@@ -48,7 +48,7 @@ Prediction for Chainlink
 
 ![image](https://github.com/Samarthkr2003/Predictions_Samarth/assets/89212505/8937403a-cc09-41cc-86b9-508c4b9f7250)
 
-![image](https://github.com/Samarthkr2003/Predictions_Samarth/assets/89212505/86178578-566a-4787-8d09-22c3f8c1742c)
+![image](https://github.com/Retrera-Inc/blaze-quant-challenge/assets/89212505/30fcd8e0-8642-48f9-b9c4-6be1764a4f53)
 
 
 ## Data
